@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500;600&display=swap');;
 
 
+
 /* Global */
 
 html {
@@ -72,7 +73,7 @@ body {
 .nav-menu-items:first-child {
     margin-left: 0;
 }
-.nav-menu-items:hover {
+.menu-link:hover {
     color: rgba(156, 124, 124, 0.304);
 }
 .menu-link {
@@ -90,9 +91,109 @@ body {
     cursor: pointer;
     border: none;
     margin-left: 2rem;
-    transition: all 300ms ease-in;
-    box-shadow: 0 0.5rem 1rem rgba(10, 190, 173, 0.15);
+    transition: all 500ms ease-in;
+    box-shadow: 0 0.5rem 1rem #0abead26;
 }
 .btn:hover {
     transform: scale(1.04,1.05);
+}
+
+/* TaskApp */
+
+
+
+.navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+.navbar h1 {
+  color: #0abead26;
+}
+.navbar .links {
+  margin-left: auto;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+.navbar a:hover {
+  color: #03efd826;
+}
+.content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* blog previews / list */
+.blog-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+.blog-preview:hover {
+  box-shadow: 1px 3px 5px #0bf8e026;
+}
+.blog-preview h2 {
+  font-size: 20px;
+  color: #0abead26;
+  margin-bottom: 8px;
+}
+.blog-preview a{
+  text-decoration: none;
+}
+
+/* blog details page */
+.blog-details h2 {
+  font-size: 20px;
+  color: #0abead26;
+  margin-bottom: 10px;
+}
+.blog-details div {
+  margin: 20px 0;
+}
+.blog-details button {
+  background: #0abead26;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* create new blog form */
+.create {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.create label {
+  text-align: left;
+  display: block;
+}
+.create h2 {
+  font-size: 20px;
+  color: #0abead26;
+  margin-bottom: 30px;
+}
+.create input, .create textarea, .create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.create button {
+  background: #0abead26;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }

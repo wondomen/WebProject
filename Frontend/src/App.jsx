@@ -1,16 +1,22 @@
-//import { useState } from 'react'
+// import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './Styles/App.css'
-import NavBar from'./Components/NavBar.jsx'
+import TaskApp from './Components/TaskApp.jsx'
+import Home from './Components/Home.jsx'
+
 
 function App() {
   
 
   return (
     <>
-    
-      <NavBar />
-
-    
+      <BrowserRouter>
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/TaskApp" element={<TaskApp />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )   
       
@@ -18,4 +24,4 @@ function App() {
   
 }
 
-export default App
+export default App;
