@@ -1,9 +1,7 @@
-//import { useState } from 'react'
+// import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './Styles/App.css'
 import NavBar from'./Components/NavBar.jsx'
-import React, { useState } from 'react';
-import TaskList from './pages/TaskList';
-import TaskForm from './pages/TaskForm';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -23,11 +21,6 @@ function App() {
     <>
     
       <NavBar />
-      <div>
-      <h1>Task Manager</h1>
-      <TaskForm onAdd={handleAddTask} />
-      <TaskList tasks={tasks} onDelete={handleDeleteTask} />
-    </div>
 
     
     </>
@@ -37,4 +30,4 @@ function App() {
   
 }
 
-export default App
+export default App;

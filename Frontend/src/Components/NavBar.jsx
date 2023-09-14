@@ -1,4 +1,5 @@
 // import React from 'react';
+import { Link } from "react-router-dom";
 import'../Styles/App.css'
 import {MdOutlineAddTask} from 'react-icons/md'
 import { Link } from "react-router-dom";
@@ -18,7 +19,7 @@ const Navbar = () => {
               </ul>
           </div>
           <div className="btn-nav">
-              <button className="btn">Sign in</button>
+              <button className="btn"><Link to="/TaskApp">Sign in</Link></button>
               <button className="btn ">Register</button>
           </div>
       </div>
