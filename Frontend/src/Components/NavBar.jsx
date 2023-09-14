@@ -18,7 +18,7 @@ const Navbar = () => {
               </ul>
           </div>
           <div className="btn-nav">
-              <button className="btn"><Link to="/TaskApp">Sign in</Link></button>
+              <button className="btn"><Link to="/TaskApp" className="link-style">Sign in</Link></button>
               <button className="btn ">Register</button>
           </div>
       </div>

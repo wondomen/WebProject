@@ -94,6 +94,12 @@ body {
     transition: all 500ms ease-in;
     box-shadow: 0 0.5rem 1rem #0abead26;
 }
+
+.link-style {
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Change the link color if needed */
+    
+  }
 .btn:hover {
     transform: scale(1.04,1.05);
 }
@@ -101,99 +107,36 @@ body {
 /* TaskApp */
 
 
-
-.navbar {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
-}
-.navbar h1 {
-  color: #0abead26;
-}
-.navbar .links {
-  margin-left: auto;
-}
-.navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
-}
-.navbar a:hover {
-  color: #03efd826;
-}
-.content {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-/* blog previews / list */
-.blog-preview {
-  padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-}
-.blog-preview:hover {
-  box-shadow: 1px 3px 5px #0bf8e026;
-}
-.blog-preview h2 {
-  font-size: 20px;
-  color: #0abead26;
-  margin-bottom: 8px;
-}
-.blog-preview a{
-  text-decoration: none;
-}
-
-/* blog details page */
-.blog-details h2 {
-  font-size: 20px;
-  color: #0abead26;
-  margin-bottom: 10px;
-}
-.blog-details div {
-  margin: 20px 0;
-}
-.blog-details button {
-  background: #0abead26;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* create new blog form */
-.create {
+.create__task {
   max-width: 400px;
-  margin: 0 auto;
+  margin: 2rem auto;
   text-align: center;
 }
-.create label {
+.create__task label {
   text-align: left;
   display: block;
 }
-.create h2 {
+.create__task h2 {
   font-size: 20px;
-  color: #0abead26;
+  color: #0ABEAD;
   margin-bottom: 30px;
 }
-.create input, .create textarea, .create select {
+.create__task input, .create__task textarea, .create__task select {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
-  border: 1px solid #ddd;
+  border: 1px solid #0ABEAD;
+  border-radius: 10px;
+  background-color: #e2fffd;
   box-sizing: border-box;
   display: block;
 }
-.create button {
-  background: #0abead26;
+.create__task button {
+  background: #0ABEAD;
   color: #fff;
   border: 0;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
 }
+

@@ -41,7 +41,7 @@ const TaskApp = () => {
     }
   return (
     <>
-        <div className="create">
+        <div className="create__task">
             <h2>Add a New Task</h2>
             <form onSubmit={handleSubmit}>
                 <label>Task title:</label>
@@ -62,7 +62,7 @@ const TaskApp = () => {
                 required 
                 value={title}
                 onChange={(e) => setAuthor(e.target.value)} />
-            <button><Link to="/">Add Task</Link></button>
+            <button><Link to="/" className="link-style">Add Task</Link></button>
         </form>
         </div>
     </>
