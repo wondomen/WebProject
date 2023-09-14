@@ -1,13 +1,13 @@
 import mongoose, { Schema } from "mongoose";
 
-const noteSchema = new Schema({
+const taskSchema = new Schema({
     title: { type: String, required: true },
     date: { type: String, required: true },
     content: {type: String, required: true},
 }, {
-    collection: "note"
+    collection: "task"
 });
 
-const Note = mongoose.model("Note", noteSchema);
+const Task = mongoose.model("Task", taskSchema);
 
-export { Note };
+export { Task };

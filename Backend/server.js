@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 import userRouter from './routes/userRouter.js';
-import noteRouter from './routes/noteRouter.js';
+import taskRouter from './routes/taskRouter.js';
 
 dotenv.config();
 const app = express();
@@ -43,4 +43,4 @@ app.listen(PORT, () => {
 });
 
 app.use("/api/user", userRouter);
-app.use("/api/note", noteRouter);
+app.use("/api/task", taskRouter);
