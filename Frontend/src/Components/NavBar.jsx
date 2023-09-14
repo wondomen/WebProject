@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import'../Styles/App.css'
 import {MdOutlineAddTask} from 'react-icons/md'
 
-
 const Navbar = () => {
   return (
     <div className="container">
