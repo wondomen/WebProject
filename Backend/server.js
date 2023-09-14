@@ -42,5 +42,5 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-app.use("/api", userRouter);
-app.use("/api", noteRouter);
+app.use("/api/user", userRouter);
+app.use("/api/note", noteRouter);
