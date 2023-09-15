@@ -35,7 +35,7 @@ const TaskApp = () => {
         setBody("");
         setAuthor("");
         navigate('/');
-        console.log('new blog added:', json)
+        console.log('new task added:', json)
       }
   
     }
