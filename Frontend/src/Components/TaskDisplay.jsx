@@ -17,6 +17,25 @@ const TaskDisplay = () => {
         setData(jsonResponse);
     }
 
+    const deleteTask = async (id) => {
+        const response = await fetch(`http://localhost:3001/api/deleteTaskById/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const jsonResponse = await response.json();
+        if (!response.ok) {
+            console.log("Error in deleting task");
+        };
+        if (response.ok) {
+            console.log('Task deleted:', jsonResponse);
+            alert("Task Deleted Successfully");
+            window.location.reload();
+        };
+    }
+
+
     useEffect(() => {
         getTasks();
     }, [])
@@ -29,6 +48,8 @@ const TaskDisplay = () => {
                         <h3>Title: {task.title}</h3>
                         <p>Content: {task.content}</p>
                         <p>Date: {format(new Date(task.date), "dd/MM/yyyy, hh:mm aa")}</p>
+
+                        <button className="btn btn-danger" onClick={() => deleteTask(task._id)}>Delete</button>
                     </div>
                 )   
             })

@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import userRouter from './routes/userRouter.js';
 import taskRouter from './routes/taskRouter.js';
@@ -12,6 +13,7 @@ const URI = process.env.MONGO_URI;
 
 
 app.use(express.json());
+app.use(cors());
 
 async function connectToMongoDB() {
 
@@ -40,12 +42,6 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
 });
 
 app.use(userRouter);
