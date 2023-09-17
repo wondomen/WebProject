@@ -19,10 +19,7 @@ const TaskDisplay = () => {
 
     const deleteTask = async (id) => {
         const response = await fetch(`http://localhost:3001/api/deleteTaskById/${id}`, {
-            method: "DELETE",
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            method: "DELETE"
         });
         const jsonResponse = await response.json();
         if (!response.ok) {
