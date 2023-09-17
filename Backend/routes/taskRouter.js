@@ -3,10 +3,10 @@ import taskController from '../controllers/taskController.js';
 
 const taskRouter = express.Router();
 
-taskRouter.post('/', taskController.createTask);
-taskRouter.get('/', taskController.getAllTasks);
-taskRouter.get('/:id', taskController.getTaskById);
-taskRouter.put('/:id', taskController.updateTaskById);
-taskRouter.delete('/:id', taskController.deleteTaskById);
+taskRouter.post('/api/createTask', taskController.createTask);
+taskRouter.get('/api/getAllTasks', taskController.getAllTasks);
+taskRouter.get('/api/getTaskById/:id', taskController.getTaskById);
+taskRouter.put('/api/updateTaskById/:id', taskController.updateTaskById);
+taskRouter.delete('/api/deleteTaskById/:id', taskController.deleteTaskById);
 
 export default taskRouter;
