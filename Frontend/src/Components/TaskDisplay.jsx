@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { sortDataByDate } from "../Utils/sortDataByDate";
+import "../Styles/TaskDisplay.css";
 
 const TaskDisplay = () => {
     const apiURL = "http://localhost:3001/api/getAllTasks";

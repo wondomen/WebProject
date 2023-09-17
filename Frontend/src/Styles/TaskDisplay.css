@@ -1,0 +1,50 @@
+/* Style the main container */
+.task-display {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the heading */
+.task-display h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Style the task list container */
+.task-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style each task list item */
+.task-list-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the title */
+.task-list-item h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Style the content */
+.task-list-item p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Style the date */
+.task-list-item p.date {
+    font-size: 14px;
+    color: #777;
+}

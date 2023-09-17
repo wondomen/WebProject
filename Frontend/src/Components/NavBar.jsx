@@ -22,9 +22,7 @@ const Navbar = () => {
               <button className="btn ">Register</button>
           </div>
       </div>
-    </div>
-
-    
+    </div> 
   );
 }
 

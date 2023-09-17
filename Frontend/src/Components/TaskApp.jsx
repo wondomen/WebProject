@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link  } from "react-router-dom";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"
+import "react-datepicker/dist/react-datepicker.css";
 
 // import { REACT_APP_API_URL } from '../utils/apiConfig';
 
@@ -10,69 +10,69 @@ import "react-datepicker/dist/react-datepicker.css"
 const apiUrl = `${'http://localhost:3001'}/api/createTask`;
 
 const TaskApp = () => {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [date, setDate] = useState(new Date());
-    const navigate = useNavigate();
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-  
-      const task = { title, content, date };
-  
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        body: JSON.stringify(task),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      const json = await response.json()
-  
-      if (!response.ok) {
-        console.log("Error in adding task");
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [date, setDate] = useState(new Date());
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const task = { title, content, date };
+
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      body: JSON.stringify(task),
+      headers: {
+        'Content-Type': 'application/json'
       }
-      if (response.ok) {
-        setTitle("");
-        setContent("");
-        setDate("");
-        navigate('/');
-        console.log('New task added:', json);
-        alert("Task Added Successfully");
-      }
-    }
+    });
+    const json = await response.json();
+
+    if (!response.ok) {
+      console.log("Error in adding task");
+    };
+    if (response.ok) {
+      setTitle("");
+      setContent("");
+      setDate("");
+      navigate('/');
+      console.log('New task added:', json);
+      alert("Task Added Successfully");
+    };
+  };
 
   return (
     <>
-        <div className="create__task">
-          <h2>Add a new task</h2>
-            <form onSubmit={handleSubmit}>
+      <div className="create__task">
+        <h2>Add a new task</h2>
+        <form onSubmit={handleSubmit}>
 
-              <label>Task Title:</label>
-              <input 
-                type="text" 
-                required 
-                value={title}
-                onChange={(e) => setTitle(e.target.value)} />
+          <label>Task Title:</label>
+          <input 
+            type="text" 
+            required 
+            value={title}
+            onChange={(e) => setTitle(e.target.value)} />
 
-              <label>Task Content:</label>
-              <textarea
-                required
-                value={content}
-                onChange={(e) => setContent(e.target.value)}>
-              </textarea>
+          <label>Task Content:</label>
+          <textarea
+            required
+            value={content}
+            onChange={(e) => setContent(e.target.value)}>
+          </textarea>
 
-              <label>Date:</label>
-              <DatePicker 
-                dateFormat="dd/MM/yyyy, h:mm aa" 
-                showTimeSelect
-                selected={date} 
-                closeOnScroll={true} 
-                onChange={(date) => setDate(date)} />
+          <label>Date:</label>
+          <DatePicker 
+            dateFormat="dd/MM/yyyy, h:mm aa" 
+            showTimeSelect
+            selected={date} 
+            closeOnScroll={true} 
+            onChange={(date) => setDate(date)} />
 
-            <button>Add Task</button>
+          <button>Add Task</button>
         </form>
-        </div>
+      </div>
     </>
   )
 }
