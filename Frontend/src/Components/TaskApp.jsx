@@ -30,7 +30,7 @@ const TaskApp = () => {
       const json = await response.json()
   
       if (!response.ok) {
-        console.log("Error");
+        console.log("Error in adding task");
       }
       if (response.ok) {
         setTitle("");
@@ -45,7 +45,7 @@ const TaskApp = () => {
   return (
     <>
         <div className="create__task">
-          <h2>Add a New Task</h2>
+          <h2>Add a new task</h2>
             <form onSubmit={handleSubmit}>
 
               <label>Task Title:</label>

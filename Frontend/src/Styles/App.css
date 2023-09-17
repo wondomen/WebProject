@@ -141,6 +141,8 @@ body {
   cursor: pointer;
 }
 
+
+/* React DatePicker */
 .react-datepicker-wrapper {
     display: flex !important;
     align-items: center;
