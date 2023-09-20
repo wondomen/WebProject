@@ -1,3 +1,7 @@
+/* Reset Css */
+
+@import '../../node_modules/reset-css/reset.css';
+
 /* Fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500;600&display=swap');;
@@ -5,6 +9,12 @@
 
 
 /* Global */
+
+:root{
+    --text-color: #33333333;
+    --primary-color: #0BBFAE;
+    --shadow-color: rgba(19, 182, 255, 0.24);
+}
 
 html {
     box-sizing: border-box;
@@ -47,8 +57,10 @@ body {
     text-align: center;
     font-family: 'Oswald', sans-serif;
 }
-
-
+.logo-icon{
+    color: var(--primary-color);
+    cursor: pointer;
+}
 
 .nav-menu {
     display: flex;
@@ -76,9 +88,13 @@ body {
 .menu-link:hover {
     color: rgba(156, 124, 124, 0.304);
 }
+.home{
+    color: var(--primary-color);
+}
 .menu-link {
     text-decoration: none;
     color: inherit;
+    transition: all 100ms ease-in;
 }
 .btn-nav{
     display: flex;
@@ -92,17 +108,81 @@ body {
     border: none;
     margin-left: 2rem;
     transition: all 500ms ease-in;
-    box-shadow: 0 0.5rem 1rem #0abead26;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .link-style {
-    text-decoration: none; /* Remove the underline */
-    color: inherit; /* Change the link color if needed */
+    text-decoration: none; 
+    color: inherit; 
     
   }
 .btn:hover {
     transform: scale(1.04,1.05);
 }
+
+.nav__toggle_menu {
+    display: none;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+.nav__toggle-menu-line {
+    width: 3rem;
+    height: .5rem;
+    background-color: var(--primary-color);
+    position: relative;
+    border-radius: 2rem;
+    transition: all 100ms ease-in;
+    
+}
+.nav__toggle-menu-line::before, .nav__toggle-menu-line::after {
+    content: '';
+    position: absolute;
+    width: 3rem;
+    height: .5rem;
+    background-color: var(--primary-color);
+    top: -.75rem;
+    border-radius: 2rem;
+    transition: all 150ms ease-in;
+    
+    
+    
+}
+.nav__toggle-menu-line::after {
+    top: .75rem;
+}
+
+.menu-toggle-open {
+    width: 3rem;
+    height: .5rem;
+    background-color: var(--primary-color);
+    position: relative;
+    border-radius: 2rem;
+    transition: all 100ms ease-in;
+    background-color: transparent;
+}
+.menu-toggle-open::before, .menu-toggle-open::after {
+    content: '';
+    position: absolute;
+    width: 3rem;
+    height: .5rem;
+    background-color: var(--primary-color);
+    top: -.75rem;
+    border-radius: 2rem;
+    transition: all 150ms ease-in;
+    transform: translateY(.75rem) rotate(45deg);
+    
+    
+}
+.menu-toggle-open::after {
+    top: .75rem;
+    transform: translateY(-0.75rem) rotate(-45deg);
+}
+
+
+
 
 /* TaskApp */
 
@@ -118,21 +198,21 @@ body {
 }
 .create__task h2 {
   font-size: 20px;
-  color: #0ABEAD;
+  color: var(--primary-color);
   margin-bottom: 30px;
 }
 .create__task input, .create__task textarea, .create__task select {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
-  border: 1px solid #0ABEAD;
+  border: 1px solid var(--primary-color);
   border-radius: 10px;
   background-color: #e2fffd;
   box-sizing: border-box;
   display: block;
 }
 .create__task button {
-  background: #0ABEAD;
+  background: var(--primary-color);
   color: #fff;
   border: 0;
   padding: 8px;
@@ -140,3 +220,108 @@ body {
   cursor: pointer;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Part */
+
+
+@media screen and (max-width: 1200px) {
+
+
+    
+}
+@media screen and (max-width: 992px) {
+    .btn-nav{
+        margin-left: 0;
+    }
+
+
+    
+}
+@media screen and (max-width: 768px) {
+    .btn-nav{
+        margin-top: 2rem;
+    }
+    .btn-sign-in{
+        margin-left: 0;
+    }
+    
+
+    
+}
+@media screen and (max-width: 576px) {
+    .nav__menu, .nav-logo{
+        margin-top: 1rem;
+    }
+    .nav-menu-items {
+        font-size: 1rem;
+    }
+    
+
+}
+@media screen and (max-width: 374px) {
+    .nav__menu {
+        display: none;
+    }
+    .btn-nav{
+        display: none;
+    }
+    .nav__toggle_menu {
+        display: flex;
+    }
+    .nav-menu-items{
+        display: inline;
+    }
+    .nav-menu-parent {
+        position: absolute;
+        top: 100%;
+        flex-direction: column;
+        width: 100%;
+        right: 0;
+        left: 0;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0;
+        transition: all 150ms ease-in;
+        height: 0;
+        overflow: hidden;
+    }
+    .menu-open {
+        height: 216px;
+    }
+    .nav-menu-items{
+        margin:0;
+        margin-bottom: 1rem;
+        align-items: center        
+        /* text-align: center; */
+    }
+    .nav-menu-items:first-child {
+        margin-top: 1rem;
+    }
+
+}
