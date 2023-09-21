@@ -328,13 +328,15 @@ body {
 
 }
 
-/* React DatePicker */
-/* .react-datepicker-wrapper {
+/* React DatePicker  */
+
+
+.react-datepicker-wrapper {
     display: flex !important;
     align-items: center;
 }
 
 .react-datepicker__navigation {
     align-items: normal !important;
-} */
+}
 

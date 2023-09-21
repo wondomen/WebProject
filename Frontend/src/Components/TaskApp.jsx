@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link  } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import TaskDisplay from "./TaskDisplay";
 
 // import { REACT_APP_API_URL } from '../utils/apiConfig';
 
@@ -13,7 +14,7 @@ const TaskApp = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [date, setDate] = useState(new Date());
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,15 +32,16 @@ const TaskApp = () => {
 
     if (!response.ok) {
       console.log("Error in adding task");
-    };
+    }
     if (response.ok) {
       setTitle("");
       setContent("");
       setDate("");
-      navigate('/');
+      // navigate('/');
       console.log('New task added:', json);
       alert("Task Added Successfully");
-    };
+      window.location.reload();
+    }
   };
 
   return (
@@ -72,6 +74,9 @@ const TaskApp = () => {
 
           <button>Add Task</button>
         </form>
+
+        <TaskDisplay />
+
       </div>
     </>
   )
