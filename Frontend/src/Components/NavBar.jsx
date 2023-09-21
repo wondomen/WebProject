@@ -6,10 +6,15 @@ import {MdOutlineAddTask} from 'react-icons/md'
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const menuToggle = () => {
     setToggle(!toggle);
   }
+  const menuOpener = () => {
+    setMenuOpen(!menuOpen);
+  }
+
   return (
     <div className="container">
       <div className="nav">
@@ -24,13 +29,13 @@ const Navbar = () => {
               </ul>
           </div>
           <div className="nav__toggle_menu" onClick={menuToggle}>
-            <div className={ toggle ? "menu-toggle-open" : "nav__toggle-menu-line"}>
+            <div onClick={menuOpener} className={ toggle ? "menu-toggle-open" : "nav__toggle-menu-line" }>
             </div>
-            {toggle && <ul className="nav-menu-parent menu-open">
+            {menuOpener && <ul className={menuOpen ? "nav-menu-parent menu-open" : "nav-menu-parent"}>
                   <li className="nav-menu-items home"><a className="menu-link" href="#Home">Home</a></li>
                   <li className="nav-menu-items"><a className="menu-link" href="#About-us">About us</a></li>
                   <li className="nav-menu-items"><a className="menu-link" href="#Contact-us">Contact us</a></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="#Sign-in">Sign in</a></li>
+                  <li className="nav-menu-items"><Link to="/TaskApp" className="menu-link link-style">Sign in</Link></li>
                   <li className="nav-menu-items"><a className="menu-link" href="#Register">Register</a></li>
               </ul>}
           </div>
