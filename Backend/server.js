@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import userRouter from './routes/userRouter.js';
 import taskRouter from './routes/taskRouter.js';
@@ -12,6 +13,7 @@ const URI = process.env.MONGO_URI;
 
 
 app.use(express.json());
+app.use(cors());
 
 async function connectToMongoDB() {
 
@@ -42,5 +44,5 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-app.use("/api/user", userRouter);
-app.use("/api/task", taskRouter);
+app.use(userRouter);
+app.use(taskRouter);

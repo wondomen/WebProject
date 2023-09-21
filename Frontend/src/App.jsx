@@ -4,14 +4,11 @@ import './Styles/App.css'
 import TaskApp from './Components/TaskApp.jsx'
 import Home from './Components/Home.jsx'
 
-
 function App() {
   
-
   return (
     <>
-      <BrowserRouter>
-        
+      <BrowserRouter>   
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/TaskApp" element={<TaskApp />} />
@@ -19,9 +16,6 @@ function App() {
       </BrowserRouter>
     </>
   )   
-      
-    
-  
 }
 
 export default App;

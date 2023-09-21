@@ -26,6 +26,7 @@ body {
     line-height: 1.5rem;
 } 
 
+
 /* Container */
 
 .container {
@@ -247,6 +248,7 @@ body {
 
 
 
+
 /* Responsive Part */
 
 
@@ -317,11 +319,22 @@ body {
     .nav-menu-items{
         margin:0;
         margin-bottom: 1rem;
-        align-items: center        
-        /* text-align: center; */
+        align-items: center;      
+        text-align: center;
     }
     .nav-menu-items:first-child {
         margin-top: 1rem;
     }
 
 }
+
+/* React DatePicker */
+/* .react-datepicker-wrapper {
+    display: flex !important;
+    align-items: center;
+}
+
+.react-datepicker__navigation {
+    align-items: normal !important;
+} */
+
