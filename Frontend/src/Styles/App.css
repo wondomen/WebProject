@@ -311,10 +311,12 @@ body {
         padding-left: 0;
         transition: all 150ms ease-in;
         height: 0;
-        overflow: hidden;
+        overflow-y: auto
+        
     }
     .menu-open {
         height: 216px;
+
     }
     .nav-menu-items{
         margin:0;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { sortDataByDate } from "../Utils/sortDataByDate";
 import "../Styles/TaskDisplay.css";
@@ -24,12 +24,12 @@ const TaskDisplay = () => {
         const jsonResponse = await response.json();
         if (!response.ok) {
             console.log("Error in deleting task");
-        };
+        }
         if (response.ok) {
             console.log('Task deleted:', jsonResponse);
             alert("Task Deleted Successfully");
             window.location.reload();
-        };
+        }
     }
 
 
