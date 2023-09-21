@@ -48,6 +48,7 @@ const Navbar = () => {
               <button className="btn ">Register</button>
           </div>
       </div>
+          {menuOpen && <div className= "cover cover-active"></div>}
     </div> 
   );
 }
