@@ -63,14 +63,14 @@ const loginUser = async (req, res) => {
           // throw new Error("Missing required fields in login"); 
         }
     
-        const usernameCheck = await User.findOne({ usename });
+        const usernameCheck = await User.findOne({ username });
     
         if (!usernameCheck) {
           return res.status(400).json({ message: "Username does not exist" });
           // throw new Error("Email does not exist");
         }
     
-        const passwordCheck = await bcrypt.compare(password, emailCheck.password);
+        const passwordCheck = await bcrypt.compare(password, usernameCheck.password);
     
         if (!passwordCheck) {
           return res.status(400).json({ message: "Password is incorrect" });
@@ -78,7 +78,7 @@ const loginUser = async (req, res) => {
         }
     
         const token = jwt.sign(
-          { id: emailCheck._id },
+          { id: usernameCheck._id },
           process.env.JWT_SECRET,
           { expiresIn: "30d" }
         );

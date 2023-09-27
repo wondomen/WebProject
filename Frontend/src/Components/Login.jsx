@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css"
+import { ReactSVG } from "react-svg";
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const loginCriteria = [
         {
@@ -35,7 +38,7 @@ const Login = () => {
             password
         }
 
-        const response = await fetch("http://localhost:5000/api/login", {
+        const response = await fetch("http://localhost:3000/api/loginUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -52,8 +55,8 @@ const Login = () => {
         if (response.ok) {
             setUsername("");
             setPassword("");
-            console.log("Logged in");
-            console.log(response);
+            // console.log("Logged in");
+            navigate("/");
         }
     }
 
@@ -73,8 +76,26 @@ const Login = () => {
                         )
                     )}
                     <button type="submit">Login</button>
+
+                    <div className="register-link">
+                        Don't have an account?
+                        <p className="redirect-link" onClick={() => navigate("/Register")}>Register</p>
+                    </div>
+
+                    <div className="forgot-password">
+                        {/* <p className="redirect-link" onClick={() => navigate("/ForgotPassword")}>Forgot Password?</p> */}
+                        <p onClick={() => {alert("Then try to remeber it")}}>Forgot your password?</p>
+                    </div>
                 </form>
+
+                
+
+                <div className="login-image">
+                    <ReactSVG className="login-svg" src="/undraw_to_do_list_re_9nt7.svg" />
+                </div>
             </div>
+
+            
         </>
     )
 }
