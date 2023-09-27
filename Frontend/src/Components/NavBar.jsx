@@ -33,10 +33,10 @@ const Navbar = () => {
             </div>
             {menuOpener && <ul className={menuOpen ? "nav-menu-parent menu-open" : "nav-menu-parent"}>
                   <li className="nav-menu-items home"><a className="menu-link" href="#Home">Home</a></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="#About-us">About us</a></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="#Contact-us">Contact us</a></li>
-                  <li className="nav-menu-items"><Link to="/TaskApp" className="menu-link link-style">Sign in</Link></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="#Register">Register</a></li>
+                  <li className="nav-menu-items text-white"><a className="menu-link" href="#About-us">About us</a></li>
+                  <li className="nav-menu-items text-white"><a className="menu-link" href="#Contact-us">Contact us</a></li>
+                  <li className="nav-menu-items text-white"><Link to="/TaskApp" className="menu-link">Sign in</Link></li>
+                  <li className="nav-menu-items text-white"><a className="menu-link" href="#Register">Register</a></li>
               </ul>}
           </div>
           <div className="btn-nav">
