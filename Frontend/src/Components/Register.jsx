@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Styles/Register.css"
 
 const Register = () => {
@@ -73,15 +73,13 @@ const Register = () => {
             email: email 
         };
 
-        // console.log(user);
-        // console.log(JSON.stringify(user));
-
         const response = await fetch("http://localhost:3000/api/createUser", {
             method: "POST",
-            body: JSON.stringify(user),
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            body: JSON.stringify(user)
+            
         });
         // const json = await response.json();
 
@@ -107,9 +105,9 @@ const Register = () => {
         <>
             <div className="register-container">
                 <form className="register-form" onSubmit={handleSubmit}>
-                    {signupCriteria.map((c) => {
-                        return (
-                            <input 
+                    <h1>Sign Up</h1>
+                    {signupCriteria.map((c) => (
+                        <input 
                             key={c.id} 
                             type={c.type} 
                             value={c.value} 
@@ -117,7 +115,7 @@ const Register = () => {
                             onChange={c.func} 
                         />
                         )
-                    })}
+                    )}
                     <button>Sign Up</button>
                 </form>
             </div>

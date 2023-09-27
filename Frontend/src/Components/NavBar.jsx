@@ -41,7 +41,7 @@ const Navbar = () => {
           </div>
           <div className="btn-nav">
 
-              <button className="btn btn-sign-in"><Link to="/Signin" className="link-style">Log in</Link></button>
+              <button className="btn btn-sign-in"><Link to="/Login" className="link-style">Log in</Link></button>
 
               <button className="btn"><Link to="/TaskApp" className="link-style">Create Task</Link></button>
 
