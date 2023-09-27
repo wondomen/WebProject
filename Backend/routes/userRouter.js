@@ -4,6 +4,7 @@ import userController from '../controllers/userController.js';
 const userRouter = express.Router();
 
 userRouter.post('/api/createUser', userController.createUser);
+userRouter.post('/api/loginUser', userController.loginUser);
 userRouter.get('/api/getAllUsers', userController.getAllUsers);
 userRouter.get('/api/getUserById/:id', userController.getUserById);
 userRouter.put('/api/updateUserById/:id', userController.updateUserById);

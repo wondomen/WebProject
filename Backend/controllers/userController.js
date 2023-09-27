@@ -56,7 +56,7 @@ const createUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
-        const { usename, password } = req.body;
+        const { username, password } = req.body;
     
         if (!username || !password) {
           return res.status(400).json({ message: "Please fill in all required fields" });
@@ -156,6 +156,7 @@ const deleteUserById = async (req, res) => {
 
 export default { 
     createUser, 
+    loginUser,
     getAllUsers, 
     getUserById, 
     updateUserById, 

@@ -35,17 +35,17 @@ const Navbar = () => {
                   <li className="nav-menu-items home"><a className="menu-link" href="#Home">Home</a></li>
                   <li className="nav-menu-items"><a className="menu-link" href="#About-us">About us</a></li>
                   <li className="nav-menu-items"><a className="menu-link" href="#Contact-us">Contact us</a></li>
-                  <li className="nav-menu-items"><Link to="/TaskApp" className="menu-link link-style">Sign in</Link></li>
+                  <li className="nav-menu-items"><Link to="/TaskApp" className="menu-link link-style">Log in</Link></li>
                   <li className="nav-menu-items"><a className="menu-link" href="#Register">Register</a></li>
               </ul>}
           </div>
           <div className="btn-nav">
 
-              <button className="btn btn-sign-in"><Link to="/TaskApp" className="link-style">Sign in</Link></button>
+              <button className="btn btn-sign-in"><Link to="/Signin" className="link-style">Log in</Link></button>
 
               <button className="btn"><Link to="/TaskApp" className="link-style">Create Task</Link></button>
 
-              <button className="btn ">Register</button>
+              <button className="btn "><Link to="/Register" className="link-style">Register</Link></button>
           </div>
       </div>
           {menuOpen && <div className= "cover cover-active"></div>}
