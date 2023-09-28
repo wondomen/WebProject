@@ -1,4 +1,3 @@
-// import React from 'react'
 import Navbar from './NavBar'
 import MainHome from './MainHome';
 import AboutUs from './AboutUs';
