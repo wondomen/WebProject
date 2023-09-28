@@ -8,7 +8,7 @@ import TaskDisplay from "./TaskDisplay";
 
 //const apiUrl = `${'mongodb+srv://ghariamir97:Ag9776Hg0483@cluster0.i8yber4.mongodb.net/?retryWrites=true&w=majority'}/api/blogs`;
 
-const apiUrl = `${'http://localhost:3001'}/api/createTask`;
+const apiUrl = `${'http://localhost:3000'}/api/createTask`;
 
 const TaskApp = () => {
   const [title, setTitle] = useState('');

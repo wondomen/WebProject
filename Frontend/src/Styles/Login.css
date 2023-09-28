@@ -42,6 +42,10 @@
     text-align: center;
 }
 
+.login-form input:focus::placeholder {
+    color: transparent;
+}
+
 .login-form button {
     display: block;
     margin-left: auto;

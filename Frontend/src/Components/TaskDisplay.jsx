@@ -4,7 +4,7 @@ import { sortDataByDate } from "../Utils/sortDataByDate";
 import "../Styles/TaskDisplay.css";
 
 const TaskDisplay = () => {
-    const apiURL = "http://localhost:3001/api/getAllTasks";
+    const apiURL = "http://localhost:3000/api/getAllTasks";
     const [data, setData] = useState([]);
 
     const getTasks = async () => {
@@ -18,7 +18,7 @@ const TaskDisplay = () => {
     }
 
     const deleteTask = async (id) => {
-        const response = await fetch(`http://localhost:3001/api/deleteTaskById/${id}`, {
+        const response = await fetch(`http://localhost:3000/api/deleteTaskById/${id}`, {
             method: "DELETE"
         });
         const jsonResponse = await response.json();
