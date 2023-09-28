@@ -31,7 +31,7 @@ const AboutUs = () => {
                             <p className="AboutUs_service_item_caption">Collaborate with the team, minimize misunderstandings and communicate effectively with others.</p>
                         </div>    
                 </div>
-                <div className="AboutUs_service_item mb-5">
+                <div className="AboutUs_service_item">
                         <div className="AboutUs_service_icon">
                             <a><TbPuzzle2 className="logo-icon" size={30}/></a>
                         </div>
@@ -40,7 +40,7 @@ const AboutUs = () => {
                             <p className="AboutUs_service_item_caption">Keep everything in one place. Set short-term or long-term goals and increase productivity by categorizing tasks and setting deadlines.</p>
                         </div>    
                 </div>
-                <div className="AboutUs_service_item mb-5">
+                <div className="AboutUs_service_item">
                         <div className="AboutUs_service_icon">
                             <a><TbTargetArrow className="logo-icon" size={30}/></a>
                         </div>
