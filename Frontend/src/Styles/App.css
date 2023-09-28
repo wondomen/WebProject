@@ -7,11 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500;600&display=swap');;
 
 
-
 /* Global */
 
 :root{
-    --text-color: #33333333;
+    --text-color: #1F3A58;
     --primary-color: #0BBFAE;
     --shadow-color: rgba(19, 182, 255, 0.24);
 }
@@ -24,7 +23,9 @@ body {
     font-size: 1.6rem;
     font-family: "Kanit, sans-serif";
     line-height: 1.5rem;
+    color: var(--text-color);
 } 
+
 
 
 /* Container */
@@ -41,12 +42,13 @@ body {
 /* NavBar */
 
 .nav {
+    color: var(--text-color);
     display: flex;
     flex-grow: 1;
     justify-content: space-around;
     align-items: center;
-    /* margin-top: 3rem; */
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 100;
@@ -59,10 +61,11 @@ body {
     justify-content: center;
 }
 
-.nav-logo {
+.nav__logo {
     display: flex;
     text-align: center;
     font-family: 'Oswald', sans-serif;
+    padding-left: 8rem;
 }
 .logo-icon{
     color: var(--primary-color);
@@ -71,10 +74,11 @@ body {
     margin-bottom: 1rem;
 }
 
-.nav-menu {
+.nav__menu {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-left: 10rem;
 }
 
 .nav-menu-parent {
@@ -114,23 +118,22 @@ body {
 }
 .btn{
     font-size: 1.4rem;
-    color: #fff;
+    color: var(--text-color);
     border-radius: 4rem;
     cursor: pointer;
     border: none;
     margin-left: 2rem;
-    transition: all 500ms ease-in;
+    transition: all 100ms ease-in;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.btn:hover {
+    transform: scale(1.04,1.05);
 }
 
 .link-style {
     text-decoration: none; 
-    color: inherit; 
-    
+    color: var(--text-color) 
   }
-.btn:hover {
-    transform: scale(1.04,1.05);
-}
 
 .nav__toggle_menu {
     display: none;
@@ -173,7 +176,7 @@ body {
     left:0;
     width:100%;
     height:100%;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
     opacity: 0;
 }
@@ -229,8 +232,6 @@ body {
   }
   
 
-
-
 /* TaskApp */
 
 
@@ -268,6 +269,135 @@ body {
 }
 
 
+/* MainHome */
+
+
+.home_head{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0rem auto;
+    margin-top: 6rem;
+    color: var(--text-color);
+    text-align: center;
+
+}
+.home_head_title{
+    margin: 2rem auto;
+    margin-top: 5rem;
+    font-size: 4rem;
+    width: 60%;
+
+
+
+}
+.home_head_caption{
+    margin: 0rem auto;
+    margin-bottom: 4rem;
+    color: rgba(95, 114, 135, 0.5);
+    
+}
+.btn-home{
+    margin: 0rem auto;
+    width: 20%;
+    color: var(--text-color);
+}
+.home-img {
+   display: flex;
+   justify-content: space-between;
+}
+
+
+/* AboutUs */
+
+
+.AboutUs{
+    background-color: #FFFFFF;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23e4f4f1' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23c6e8e2' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23a2dbd2' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%2372cdc1' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%230BBFAE' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    box-shadow: 0 0.5rem 1rem var(--primary-color);
+}
+.AboutUs_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0rem auto;
+    
+}
+.AboutUs_header{
+    margin: 2rem auto;
+    font-size: 3rem;
+    width: 60%;
+    color: var(--text-color);
+     
+}
+.AboutUs_caption {
+    margin: 0rem auto;
+    margin-bottom: 2rem;
+    color: rgba(95, 114, 135, 0.5);
+}
+
+.AboutUs_services{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: var(--text-color);
+    gap: 5rem;
+    flex-wrap: wrap;
+
+}
+.AboutUs_service_item{
+    display: flex;
+    width: 24rem;
+    height: 11rem;
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    
+    
+
+}
+.AboutUs_service_item_content{
+    text-align: center;
+}
+.AboutUs_service_item_header{
+    margin-top: 1.2rem;
+    font-size: 1.2rem;
+
+}
+.AboutUs_service_item_caption{
+    margin: 0rem auto;
+    color: rgba(95, 114, 135, 0.5);
+    text-align: left;
+    font-size: .9rem;
+    width: 78%;
+
+}
+.AboutUs_service_icon{
+    margin-left: 1rem;
+    
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -276,7 +406,12 @@ body {
 
 
 @media screen and (max-width: 1200px) {
-
+    .nav__menu{
+        margin-left: 0;
+    }
+    .nav__logo{
+        padding-left: 0;
+    }
 
     
 }
@@ -284,6 +419,8 @@ body {
     .btn-nav{
         margin-left: 0;
     }
+
+    
 
 
     
@@ -310,12 +447,24 @@ body {
 
 }
 @media screen and (max-width: 374px) {
+    .nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .home_head{
+        margin-top: 10rem;
+    }
+    
+    
     .nav__menu {
         display: none;
     }
     .btn-nav{
         display: none;
     }
+   
     .nav__toggle_menu {
         display: flex;
     }

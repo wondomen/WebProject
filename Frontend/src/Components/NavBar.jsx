@@ -46,6 +46,7 @@ const Navbar = () => {
               <button className="btn"><Link to="/TaskApp" className="link-style">Create Task</Link></button>
 
               <button className="btn "><Link to="/Register" className="link-style">Register</Link></button>
+
           </div>
       </div>
           {menuOpen && <div className= "cover cover-active"></div>}
