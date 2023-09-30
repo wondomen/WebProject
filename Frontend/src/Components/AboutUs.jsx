@@ -49,10 +49,7 @@ const AboutUs = () => {
                             <p className="AboutUs_service_item_caption">It doesn't matter if you are a freelancer or working in a company with hundreds of employees; TaskManager is an ideal tool for teams of all sizes.</p>
                         </div>    
                 </div>
-
             </div>
-
-
         </div>
       </div>
     </>

@@ -30,7 +30,7 @@ body {
 
 /* Container */
 
-.container {
+.containers {
     width: 100%;
     padding-left: 1px;
     padding-right: 1px;
@@ -284,6 +284,20 @@ body {
    display: flex;
    justify-content: space-between;
 }
+.home_head_img {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+}
+.home_head_img_svg {
+    min-width: 43.5%;
+    min-height: 50%;
+    margin-left: 5rem;
+}
+.home_head_img_svg2 {
+    min-width: 50%;
+    min-height: 50%;
+}
 
 
 /* AboutUs */
@@ -428,6 +442,31 @@ body {
 }
 
 
+/* Footer */
+
+
+.footer_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.footer_content {
+    font-size: .8rem;
+    color: var(--text-color);
+
+
+}
+.footer_icons {
+    display: flex;
+    gap: 1rem;
+
+}
+.footer_icon_item {
+    size: 40;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+
 
 
 
@@ -447,21 +486,51 @@ body {
 
 /* Responsive Part */
 
-
+@media screen and (max-width: 1400px) {
+    .containers {
+        width: 1370px;
+    }
+    .home_head_img_svg {
+        margin-left: 4rem;
+    }
+    
+}
 @media screen and (max-width: 1200px) {
+    .containers {
+        width: 1140px;
+    }
     .nav__menu{
         margin-left: 0;
     }
     .nav__logo{
         padding-left: 0;
     }
+    .AboutUs{
+        min-width: 1200px;
+        margin-left: 0;
+    }
+    .home_head_img_svg {
+        min-width: 600px;
+    }
+    .home_head_img_svg2 {
+        min-width: 686px;
+    }
 
     
 }
 @media screen and (max-width: 992px) {
+    .containers {
+        width: 960px;
+    }
     .btn-nav{
         margin-left: 0;
     }
+    /* .home_head_img_svg {
+        min-width: 496px;
+    }
+    .home_head_img_svg2 {
+        min-width: 560px;
+    } */
 
     
 
@@ -469,23 +538,41 @@ body {
     
 }
 @media screen and (max-width: 768px) {
+    .containers {
+        width: 720px;
+    }
     .btn-nav{
         margin-top: 0rem;
     }
     .btn-sign-in{
         margin-left: 0;
     }
+    /* .home_head_img_svg {
+        min-width: 384px;
+    }
+    .home_head_img_svg2 {
+        min-width: 384px;
+    } */
     
 
     
 }
 @media screen and (max-width: 576px) {
+    .containers {
+        width: 540px;
+    }
     .nav__menu, .nav-logo{
         margin-top: 1rem;
     }
     .nav-menu-items {
         font-size: 1rem;
     }
+    /* .home_head_img_svg {
+        min-width: 288px;
+    }
+    .home_head_img_svg2 {
+        min-width: 288px;
+    } */
     
 
 }
@@ -540,6 +627,7 @@ body {
         align-items: center;      
         text-align: center;
     }
+  
     
 
 }
