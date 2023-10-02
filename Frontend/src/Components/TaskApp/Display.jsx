@@ -68,7 +68,7 @@ const TaskDisplay = () => {
                         <SortIcon />
                     </div>
                     
-                    <div classNam="add-task-button" onClick={() => setToggleModal(true)}>
+                    <div className="add-task-button" onClick={() => setToggleModal(true)}>
                         <AddCircleIcon />
                     </div>    
                 </div>
@@ -85,9 +85,10 @@ const TaskDisplay = () => {
             </div>
 
             {toggleModal && (
-                <div className="overlay" onClick={() => setToggleModal(false)}>
+                <>
+                    <div className="overlay" onClick={() => setToggleModal(false)}></div>
                     <AddTask />
-                </div>
+                </>
             )}
         </>
     )
