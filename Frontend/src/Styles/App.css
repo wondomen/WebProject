@@ -26,18 +26,28 @@ body {
     color: var(--text-color);
 } 
 
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+
+
 
 
 /* Container */
 
-.containers {
+.container {
     width: 100%;
-    padding-left: 1px;
-    padding-right: 1px;
-    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
     margin-right: auto;
+    margin-left: auto;
     position: relative;
 }
+
+
 
 /* NavBar */
 
@@ -65,7 +75,7 @@ body {
     display: flex;
     text-align: center;
     font-family: 'Oswald', sans-serif;
-    padding-left: 8rem;
+    
 }
 .logo-icon{
     color: var(--primary-color);
@@ -98,6 +108,7 @@ body {
  }
 .nav-menu-items:first-child {
     margin-left: 0;
+    padding-left: 0;
 }
 .menu-link:hover {
     color: rgba(156, 124, 124, 0.304);
@@ -253,8 +264,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0rem auto;
     margin-top: 6rem;
+    align-items: center;
     color: var(--text-color);
     text-align: center;
 }
@@ -263,13 +274,12 @@ body {
     margin-bottom: 2rem;
 }
 .home_head_title{
-    margin: 2rem auto;
     margin-top: 5rem;
+    margin-bottom: 2rem;
     font-size: 4rem;
     width: 60%;
 }
 .home_head_caption{
-    margin: 0rem auto;
     margin-bottom: 2rem;
     color: rgba(95, 114, 135, 0.6);
     width: 45%;
@@ -487,8 +497,8 @@ body {
 /* Responsive Part */
 
 @media screen and (max-width: 1400px) {
-    .containers {
-        width: 1370px;
+    .container {
+        width: 1250px;
     }
     .home_head_img_svg {
         margin-left: 4rem;
@@ -496,7 +506,7 @@ body {
     
 }
 @media screen and (max-width: 1200px) {
-    .containers {
+    .container {
         width: 1140px;
     }
     .nav__menu{
@@ -519,7 +529,7 @@ body {
     
 }
 @media screen and (max-width: 992px) {
-    .containers {
+    .container {
         width: 960px;
     }
     .btn-nav{
@@ -538,7 +548,7 @@ body {
     
 }
 @media screen and (max-width: 768px) {
-    .containers {
+    .container {
         width: 720px;
     }
     .btn-nav{
@@ -558,7 +568,7 @@ body {
     
 }
 @media screen and (max-width: 576px) {
-    .containers {
+    .container {
         width: 540px;
     }
     .nav__menu, .nav-logo{
