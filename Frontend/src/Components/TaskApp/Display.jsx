@@ -1,11 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { format } from "date-fns";
+import { format, set } from "date-fns";
 import { sortDataByDate } from "../../Utils/sortDataByDate";
 
 const TaskDisplay = () => {
     const apiURL = "http://localhost:3000/api/getAllTasks";
     const [data, setData] = useState([]);
+    const [showDetail, setShowDetail] = useState(false);
 
     const getTasks = async () => {
         const response = await fetch(apiURL);
@@ -40,7 +41,7 @@ const TaskDisplay = () => {
         return (
             data.map((task) => {
                 return (
-                    <div className="task-list-item" key={task._id}>
+                    <div className="task-overview-item" key={task._id} onClick={()=> setShowDetail(!showDetail)}>
                         <h3>Title: {task.title}</h3>
                         <p>Content: {task.content}</p>
                         <p>Date: {format(new Date(task.date), "dd/MM/yyyy, hh:mm aa")}</p>
@@ -55,8 +56,12 @@ const TaskDisplay = () => {
     return (
         <>
             {/* <h2>Task Display</h2> */}
-            <div className="task-list">
+            <div className={"task-overview " + (!showDetail ? "show" : "hidden")}>
                 {makeTaskList()}
+            </div>
+
+            <div className={"task-detail " + (showDetail ? "show" : "hidden")}>
+                <h2>Task Detail</h2>
             </div>
         </>
     )
