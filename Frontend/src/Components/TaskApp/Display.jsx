@@ -3,10 +3,16 @@ import { useEffect, useState } from "react";
 import { format, set } from "date-fns";
 import { sortDataByDate } from "../../Utils/sortDataByDate";
 
+import SortIcon from '@mui/icons-material/Sort';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+
+import AddTask from "./AddTask";
+
 const TaskDisplay = () => {
     const apiURL = "http://localhost:3000/api/getAllTasks";
     const [data, setData] = useState([]);
     const [showDetail, setShowDetail] = useState(false);
+    const [toggleModal, setToggleModal] = useState(false);
 
     const getTasks = async () => {
         const response = await fetch(apiURL);
@@ -57,12 +63,32 @@ const TaskDisplay = () => {
         <>
             {/* <h2>Task Display</h2> */}
             <div className={"task-overview " + (!showDetail ? "show" : "hidden")}>
-                {makeTaskList()}
+                <div className="task-overview-header">
+                    <div className="sort-button">
+                        <SortIcon />
+                    </div>
+                    
+                    <div classNam="add-task-button" onClick={() => setToggleModal(true)}>
+                        <AddCircleIcon />
+                    </div>    
+                </div>
+
+                <hr/>
+                
+                <div className="task-overview-list">
+                    {makeTaskList()}
+                </div>
             </div>
 
             <div className={"task-detail " + (showDetail ? "show" : "hidden")}>
                 <h2>Task Detail</h2>
             </div>
+
+            {toggleModal && (
+                <div className="overlay" onClick={() => setToggleModal(false)}>
+                    <AddTask />
+                </div>
+            )}
         </>
     )
 };

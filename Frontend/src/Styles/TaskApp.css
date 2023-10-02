@@ -94,6 +94,20 @@
     min-height: 100%;
 }
 
+.task-overview-header {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    justify-content: space-between;
+    position: sticky;
+}
+
+.task-overview-header svg {
+    color: #0BBFAE;
+    font-size: 30px;
+    
+}
+
 .task-overview::-webkit-scrollbar-button:end {
     height: 50px; 
     width:30%;
@@ -101,41 +115,38 @@
 
 .task-overview::-webkit-scrollbar-button:start { 
     height: 50px; 
-    width:30%;
+    width: 30%;
 }
 
-.task-overview.show {
-    width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+.task-overview {
     height: 97.5%;
     background-color: rgb(247, 247, 247);
     border: 1px solid #ddd;
     border-radius: 2rem;
     padding: 20px;
     margin: 10px;
+}
 
+.task-overview.show {
+    width: 100%;
     transition: width 0.2s ease-out;
 }
 
 .task-overview.hidden {
     width: 35%;
+    transition: width 0.2s ease-out;
+}
+
+.task-overview-list {
+    height: 90%;
     overflow-x: hidden;
     overflow-y: auto;
-    height: 97.5%;
-    background-color: rgb(247, 247, 247);
-    border: 1px solid #ddd;
-    border-radius: 2rem;
-    padding: 20px;
-    margin: 10px;
-
-    transition: width 0.2s ease-out;
 }
 
 
 
 .task-overview-item {
-    width: 95%;
+    width: 97.5%;
     background-color: rgb(247, 247, 247);
     border: 1px solid #ddd;
     border-radius: 2rem;
@@ -173,3 +184,68 @@
     position: absolute; 
 }
 
+
+
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.create-task-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    padding: 20px;
+    margin: 10px;
+    width: 40%;
+    height: 50%;
+    z-index: 10;
+}
+
+.create-task-container h2 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.task-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.task-form label {
+    text-align: left;
+    display: block;
+}
+
+.task-form input, .task-form textarea, .create__task select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    background-color: #e2fffd;
+    box-sizing: border-box;
+    display: block;
+}
+.task-form button {
+    background: var(--primary-color);
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
