@@ -219,6 +219,24 @@ body {
     transform: translateY(-0.75rem) rotate(-45deg);
 }
 
+/*Home Page*/
+.container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin: 20px; 
+  }
+  
+  .container img {
+    max-width: 100%; 
+    margin-right: 5px; 
+  }
+
+  .container h2,
+  .container p {
+    margin-left: 60px; 
+  }
+  
 
 /* TaskApp */
 
@@ -475,6 +493,7 @@ body {
     color: var(--primary-color);
     cursor: pointer;
 }
+
 
 
 
