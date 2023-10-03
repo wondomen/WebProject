@@ -19,13 +19,15 @@ const MainHome = () => {
               Get Started
             </Link>
           </button>
-
+        </div>
+      </div>
           <div className="home_head_img">
             <svg
               data-name="Layer 1"
               width="43.5%"
               height="50%"
               viewBox="0 0 732.853 614.572"
+              className="home_head_img_svg"
             >
               <path
                 fill="#2f2e41"
@@ -134,6 +136,7 @@ const MainHome = () => {
             <svg
               width="50%"
               height="50%"
+              className='home_head_img_svg2'
               data-name="Layer 1"
               viewBox="0 0 650.114 477.612"
             >
@@ -303,8 +306,6 @@ const MainHome = () => {
               />
             </svg>
           </div>
-        </div>
-      </div>
     </>
   )
 }
