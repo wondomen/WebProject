@@ -35,7 +35,7 @@ const Navbar = () => {
                   <li className="nav-menu-items home"><a className="menu-link" href="#Home">Home</a></li>
                   <li className="nav-menu-items"><a className="menu-link" href="#About-us">About us</a></li>
                   <li className="nav-menu-items"><a className="menu-link" href="#Contact-us">Contact us</a></li>
-                  <li className="nav-menu-items"><Link to="/TaskApp" className="menu-link link-style">Log in</Link></li>
+                  <li className="nav-menu-items"><Link to="/TaskApp" className="menu-link link-style link">Log in</Link></li>
                   <li className="nav-menu-items"><a className="menu-link" href="#Register">Register</a></li>
               </ul>}
           </div>
