@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ReactSVG } from "react-svg";
 import "../Styles/Register.css"
 
 const Register = () => {
@@ -102,7 +103,9 @@ const Register = () => {
 
 
     return (
-        <>
+        <>  
+            <ReactSVG className="register-svg" src="./undraw_setup_re_y9w8.svg" />
+
             <div className="register-container">
                 <form className="register-form" onSubmit={handleSubmit}>
                     <h1>Sign Up</h1>

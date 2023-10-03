@@ -1,0 +1,251 @@
+.task-app {
+    display: block;
+    max-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+
+
+
+.task-nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #ddd;
+}
+
+.task-nav .logo svg {
+    margin: 10px 50px 10px 50px;
+}
+
+.task-nav .profile {
+    margin: 20px 50px 20px 50px;
+    text-align: center;
+}
+
+.task-nav .profile p {
+    margin: auto;
+}
+
+
+
+
+
+.task-main {
+    display: flex;
+    margin-top: 15px;
+    min-height: 87vh;
+    max-height: 87vh;
+}
+
+
+
+
+
+.task-sidebar {
+    width: 15%;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    padding: 20px;
+    margin: 10px;
+}
+
+.sidebar-items ul {
+    padding: 5px;
+}
+
+.sidebar-items li {
+    display: flex;
+    width: 80%;
+    justify-content: left;
+    align-items: center;
+    margin-top: auto;
+    border: none;
+    border-radius: 4rem;
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+
+.sidebar-items li:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.sidebar-items p {
+    margin: 5px 5px 5px 5px;
+    padding-left: 10px;
+    text-decoration: none;
+    color: #0BBFAE;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+
+
+
+
+.task-display {
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    max-height: 100%;
+    min-height: 100%;
+}
+
+.task-overview-header {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    justify-content: space-between;
+    position: sticky;
+}
+
+.task-overview-header svg {
+    color: #0BBFAE;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.task-overview::-webkit-scrollbar-button:end {
+    height: 50px; 
+    width:30%;
+}
+
+.task-overview::-webkit-scrollbar-button:start { 
+    height: 50px; 
+    width: 30%;
+}
+
+.task-overview {
+    height: 97.5%;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    padding: 20px;
+    margin: 10px;
+}
+
+.task-overview.show {
+    width: 100%;
+    transition: width 0.2s ease-out;
+}
+
+.task-overview.hidden {
+    width: 35%;
+    transition: width 0.2s ease-out;
+}
+
+.task-overview-list {
+    height: 90%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+
+.task-overview-item {
+    width: 97.5%;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    padding: 20px;
+    margin: 20px 10px 20px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.task-detail.show {
+    height: 90%;
+    width: 65%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 97.5%;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    padding: 20px;
+    margin: 10px;
+
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    visibility: visible;
+    position: relative;
+}
+
+.task-detail.hidden {
+    opacity: 0;
+    transform: translateX(100%);
+    visibility: hidden;
+    position: absolute; 
+}
+
+
+
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.create-task-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    padding: 20px;
+    margin: 10px;
+    width: 40%;
+    height: 50%;
+    z-index: 10;
+}
+
+.create-task-container h2 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.task-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.task-form label {
+    text-align: left;
+    display: block;
+}
+
+.task-form input, .task-form textarea, .create__task select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    background-color: #e2fffd;
+    box-sizing: border-box;
+    display: block;
+}
+.task-form button {
+    background: var(--primary-color);
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
