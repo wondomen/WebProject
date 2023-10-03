@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import bodyParser from "body-parser";
 
 import userRouter from "./routes/userRouter.js";
 import taskRouter from "./routes/taskRouter.js";
@@ -13,6 +14,8 @@ const URI = process.env.MONGO_URI;
 
 app.use(express.json());
 app.use(cors());
+app.options('*', cors());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 async function connectToMongoDB() {
   async function connectionHandler() {

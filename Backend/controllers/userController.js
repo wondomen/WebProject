@@ -1,17 +1,97 @@
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 import { User } from "../models/userModel.js";
+
 
 const createUser = async (req, res) => {
     try {
-        const data = await User.create(req.body);
-        console.log("User data added");
-        res.status(200).json(data);
-    }
-    catch (error) {
-        console.log("Error occured in adding booking data");
+        const { username, password, firstname, lastname, email } = req.body;
+        
+        if (!username || !password || !firstname || !lastname || !email) {
+          return res.status(400).json({ message: "Please fill in all required fields" });
+          // throw new Error("Missing required fields in registering user"); 
+        }
+    
+        const emailCheck = await User.findOne({ email });
+    
+        if (emailCheck) {
+          return res.status(400).json({ message: "Email already exists" });
+          // throw new Error("Email already exists");
+        }
+    
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+    
+        const data = {
+            username: username,
+            password: hashedPassword,
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+        };
+    
+        const newUser = await User.create(data);
+    
+        const token = jwt.sign(
+            { id: newUser._id },
+            process.env.JWT_SECRET,
+            { expiresIn: "30d" }
+        );
+    
+        const response = {
+            _id: newUser._id,
+            username: newUser.username,
+            firstname: newUser.firstname,
+            token: token,
+        };
+    
+        res.status(201).json(response);
+      } 
+      catch (error) {
+        console.log("Error occured in adding user data");
         console.log(error);
-        res.status(400);
-    }
+        res.status(400).json({ message: "Error occured in adding user data" });
+      }
 };
+
+const loginUser = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+    
+        if (!username || !password) {
+          return res.status(400).json({ message: "Please fill in all required fields" });
+          // throw new Error("Missing required fields in login"); 
+        }
+    
+        const usernameCheck = await User.findOne({ username });
+    
+        if (!usernameCheck) {
+          return res.status(400).json({ message: "Username does not exist" });
+          // throw new Error("Email does not exist");
+        }
+    
+        const passwordCheck = await bcrypt.compare(password, usernameCheck.password);
+    
+        if (!passwordCheck) {
+          return res.status(400).json({ message: "Password is incorrect" });
+          // throw new Error("Password is incorrect");
+        }
+    
+        const token = jwt.sign(
+          { id: usernameCheck._id },
+          process.env.JWT_SECRET,
+          { expiresIn: "30d" }
+        );
+    
+        res.status(200).json({ message: "User logged in", token: token });    
+      } 
+      catch (error) {
+        console.log("Error occured in adding user data");
+        console.log(error);
+        res.status(404).json({ message: "Error occured in adding user login" });
+      }
+};
+
 
 const getAllUsers = async (req, res) => {
     try {
@@ -76,6 +156,7 @@ const deleteUserById = async (req, res) => {
 
 export default { 
     createUser, 
+    loginUser,
     getAllUsers, 
     getUserById, 
     updateUserById, 
