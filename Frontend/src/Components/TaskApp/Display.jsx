@@ -5,6 +5,7 @@ import { sortDataByDate } from "../../Utils/sortDataByDate";
 
 import SortIcon from '@mui/icons-material/Sort';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import AddTask from "./AddTask";
 
@@ -20,7 +21,7 @@ const TaskDisplay = () => {
         const jsonResponse = await response.json();
 
         sortDataByDate(jsonResponse);
-        console.log(jsonResponse);
+        // console.log(jsonResponse);
 
         setData(jsonResponse);
     }
@@ -49,12 +50,9 @@ const TaskDisplay = () => {
             setShowDetail(true);
             setDisplayId(id);
         }
-        else if (showDetail && id === displayId) {
-            setShowDetail(false);
-        }
-        else if (showDetail && id !== displayId) {
-            setDisplayId(id);
-        }
+        else if (showDetail && id === displayId) setShowDetail(false);
+        
+        else if (showDetail && id !== displayId) setDisplayId(id);     
     }
 
     const makeTaskList = () => {
@@ -86,9 +84,6 @@ const TaskDisplay = () => {
                     <h3>Title: {taskDetail.title}</h3>
                     <p>Content: {taskDetail.content}</p>
                     <p>Date: {format(new Date(taskDetail.date), "dd/MM/yyyy, hh:mm aa")}</p>
-
-                    <button className="btn btn-danger" onClick={() => deleteTask(taskDetail._id)}>Delete</button>
-
                 </div>
             )
         }
@@ -96,7 +91,6 @@ const TaskDisplay = () => {
 
     return (
         <>
-            {/* <h2>Task Display</h2> */}
             <div className={"task-overview " + (!showDetail ? "show" : "hidden")}>
                 <div className="task-overview-header">
                     <div className="sort-button">
@@ -116,6 +110,19 @@ const TaskDisplay = () => {
             </div>
 
             <div className={"task-detail " + (showDetail ? "show" : "hidden")}>
+                <div className="task-detail-header">
+                    <div className="collapse-button" onClick={() => setShowDetail(false)}>
+                        <ArrowForwardIosIcon />
+                    </div>
+
+                    <div className="buttons-container">
+                        <button className="btn changes-button">Save changes</button>
+                        <button className="btn btn-danger delete-button" onClick={() => deleteTask(displayId)}>Delete</button>
+                    </div>
+                </div>
+
+                <hr/>
+                
                 {displayTaskDetail()}
             </div>
 
