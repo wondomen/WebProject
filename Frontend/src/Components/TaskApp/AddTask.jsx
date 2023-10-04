@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 
 const AddTask = () => {
@@ -6,16 +7,29 @@ const AddTask = () => {
     const [content, setContent] = useState('');
     const [date, setDate] = useState(new Date());
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const task = { title, content, date };
 
+
+        const isUserLoggedIn = localStorage.getItem("isUserLoggedIn");
+        const token = localStorage.getItem("token");
+
+        if (!token || !isUserLoggedIn) {
+            alert("Session expired. Please login again.");
+            navigate("/Login");
+            return;
+        }
+
         const response = await fetch("http://localhost:3000/api/createTask", {
             method: 'POST',
             body: JSON.stringify(task),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             }
         });
 

@@ -6,6 +6,7 @@ import { ReactSVG } from "react-svg";
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    
     const navigate = useNavigate();
 
     const loginCriteria = [
@@ -46,11 +47,16 @@ const Login = () => {
             body: JSON.stringify(loginData)
         })
 
-        // const data = await response.json();
+        const json = await response.json();
+        
+        localStorage.setItem("isUserLoggedIn", true);
+        localStorage.setItem("user", json.username);
+        localStorage.setItem("token", json.token);
 
         if (!response.ok) {
-            console.log("Error in logging in");
-            console.log(response);
+            // console.log("Error in logging in");
+            // console.log(response);
+            alert("Incorrect username or password");
         }
         if (response.ok) {
             setUsername("");
