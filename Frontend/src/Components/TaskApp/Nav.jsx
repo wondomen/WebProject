@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const TaskNavigation = ({ callback }) => {
     const navigate = useNavigate();
-    
-    localStorage.setItem("user", "tester");
 
     const user = localStorage.getItem("user");
 

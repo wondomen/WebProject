@@ -82,8 +82,14 @@ const loginUser = async (req, res) => {
           process.env.JWT_SECRET,
           { expiresIn: "1d" }
         );
+
+        const response = { 
+            message: "User logged in", 
+            username: usernameCheck.username,
+            token: token 
+        }
     
-        res.status(200).json({ message: "User logged in", token: token });    
+        res.status(200).json(response);    
       } 
       catch (error) {
         console.log("Error occured in adding user data");

@@ -17,6 +17,13 @@ const TaskAppDemo = () => {
         setProfileDropdown(value);
     }
 
+    const handleLogout = () => {
+        localStorage.removeItem("isUserLoggedIn");
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+        navigate("/");
+    }
+
     return (
         <>
             <div className="task-app">
@@ -46,7 +53,7 @@ const TaskAppDemo = () => {
                             <div className="dropdown-selection">
                                 <p>Account</p>
                                 <p>Settings</p>
-                                <p onClick={() => navigate("/")}>Logout</p>
+                                <p onClick={handleLogout}>Logout</p>
                             </div>
                         </div>
                     </>

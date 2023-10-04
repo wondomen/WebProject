@@ -1,5 +1,5 @@
-import React from "react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { format, set } from "date-fns";
 import { sortDataByDate } from "../../Utils/sortDataByDate";
 
@@ -9,6 +9,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import AddTask from "./AddTask";
 
+
 const TaskDisplay = () => {
     const apiURL = "http://localhost:3000/api/getAllTasks";
     const [data, setData] = useState([]);
@@ -16,8 +17,24 @@ const TaskDisplay = () => {
     const [toggleModal, setToggleModal] = useState(false);
     const [displayId, setDisplayId] = useState(null);
 
+    const navigate = useNavigate();
+
+    const isUserLoggedIn = localStorage.getItem("isUserLoggedIn");
+    const token = localStorage.getItem("token");
+
     const getTasks = async () => {
-        const response = await fetch(apiURL);
+        if (!token || !isUserLoggedIn) {
+            alert("Session expired. Please login again.");
+            navigate("/Login");
+        }
+
+        const response = await fetch(apiURL, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+            }
+        });
         const jsonResponse = await response.json();
 
         sortDataByDate(jsonResponse);
@@ -27,10 +44,22 @@ const TaskDisplay = () => {
     }
 
     const deleteTask = async (id) => {
+        if (!token || !isUserLoggedIn) {
+            alert("Session expired. Please login again.");
+            navigate("/Login");
+        }
+
         const response = await fetch(`http://localhost:3000/api/deleteTaskById/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+                
+            }
         });
+
         const jsonResponse = await response.json();
+        
         if (!response.ok) {
             console.log("Error in deleting task");
         }
