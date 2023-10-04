@@ -13,6 +13,7 @@ const TaskDisplay = () => {
     const [data, setData] = useState([]);
     const [showDetail, setShowDetail] = useState(false);
     const [toggleModal, setToggleModal] = useState(false);
+    const [displayId, setDisplayId] = useState(null);
 
     const getTasks = async () => {
         const response = await fetch(apiURL);
@@ -35,7 +36,7 @@ const TaskDisplay = () => {
         if (response.ok) {
             console.log('Task deleted:', jsonResponse);
             alert("Task Deleted Successfully");
-            window.location.reload();
+            getTasks();
         }
     }
 
@@ -43,20 +44,54 @@ const TaskDisplay = () => {
         getTasks();
     }, [])
 
+    const handleShowDetail = (id) => {
+        if (!showDetail) {
+            setShowDetail(true);
+            setDisplayId(id);
+        }
+        else if (showDetail && id === displayId) {
+            setShowDetail(false);
+        }
+        else if (showDetail && id !== displayId) {
+            setDisplayId(id);
+        }
+    }
+
     const makeTaskList = () => {
         return (
             data.map((task) => {
                 return (
-                    <div className="task-overview-item" key={task._id} onClick={()=> setShowDetail(!showDetail)}>
-                        <h3>Title: {task.title}</h3>
-                        <p>Content: {task.content}</p>
-                        <p>Date: {format(new Date(task.date), "dd/MM/yyyy, hh:mm aa")}</p>
+                    <div className="task-overview-item" key={task._id} onClick={() => handleShowDetail(task._id)}>
+                        <h3>{task.title}</h3>
 
-                        <button className="btn btn-danger" onClick={() => deleteTask(task._id)}>Delete</button>
                     </div>
                 )   
             })
         )
+    }
+
+    const displayTaskDetail = () => {
+        const taskDetail = data.find((task) => task._id === displayId);
+
+        if (!taskDetail) {
+            return (
+                <div className="task-detail">
+                    <h3>No Task Selected</h3>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className="task-detail">
+                    <h3>Title: {taskDetail.title}</h3>
+                    <p>Content: {taskDetail.content}</p>
+                    <p>Date: {format(new Date(taskDetail.date), "dd/MM/yyyy, hh:mm aa")}</p>
+
+                    <button className="btn btn-danger" onClick={() => deleteTask(taskDetail._id)}>Delete</button>
+
+                </div>
+            )
+        }
     }
 
     return (
@@ -81,7 +116,7 @@ const TaskDisplay = () => {
             </div>
 
             <div className={"task-detail " + (showDetail ? "show" : "hidden")}>
-                <h2>Task Detail</h2>
+                {displayTaskDetail()}
             </div>
 
             {toggleModal && (
