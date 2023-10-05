@@ -46,7 +46,7 @@ const AboutUs = () => {
                         </div>
                         <div className="AboutUs_service_item_content">
                             <h4 className="AboutUs_service_item_header">Work With Any Team, In Any Industry</h4>
-                            <p className="AboutUs_service_item_caption">It doesn't matter if you are a freelancer or working in a company with hundreds of employees; TaskManager is an ideal tool for teams of all sizes.</p>
+                            <p className="AboutUs_service_item_caption">It does not matter if you are a freelancer or working in a company with hundreds of employees; TaskManager is an ideal tool for teams of all sizes.</p>
                         </div>    
                 </div>
             </div>
