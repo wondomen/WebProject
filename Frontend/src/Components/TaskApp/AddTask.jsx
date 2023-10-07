@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+import { createTask } from '../../hooks/taskHook';
 
 const AddTask = () => {
     const [title, setTitle] = useState('');
@@ -24,15 +27,7 @@ const AddTask = () => {
             return;
         }
 
-        const response = await fetch("http://localhost:3000/api/createTask", {
-            method: 'POST',
-            body: JSON.stringify(task),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        });
-
+        const response = await createTask(task, token);
         const json = await response.json();
 
         if (!response.ok) {

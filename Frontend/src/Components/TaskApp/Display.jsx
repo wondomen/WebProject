@@ -9,9 +9,10 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import AddTask from "./AddTask";
 
+import { getTasks, deleteTask } from "../../hooks/taskHook";
+
 
 const TaskDisplay = () => {
-    const apiURL = "http://localhost:3000/api/getAllTasks";
     const [data, setData] = useState([]);
     const [showDetail, setShowDetail] = useState(false);
     const [toggleModal, setToggleModal] = useState(false);
@@ -22,42 +23,27 @@ const TaskDisplay = () => {
     const isUserLoggedIn = localStorage.getItem("isUserLoggedIn");
     const token = localStorage.getItem("token");
 
-    const getTasks = async () => {
+    const handleGetTasks = async () => {
         if (!token || !isUserLoggedIn) {
             alert("Session expired. Please login again.");
             navigate("/Login");
         }
 
-        const response = await fetch(apiURL, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization': `Bearer ${token}`
-            }
-        });
+        const response = await getTasks(token);
         const jsonResponse = await response.json();
 
         sortDataByDate(jsonResponse);
         // console.log(jsonResponse);
-
         setData(jsonResponse);
     }
 
-    const deleteTask = async (id) => {
+    const handleDeleteTask = async (id) => {
         if (!token || !isUserLoggedIn) {
             alert("Session expired. Please login again.");
             navigate("/Login");
         }
 
-        const response = await fetch(`http://localhost:3000/api/deleteTaskById/${id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization': `Bearer ${token}`
-                
-            }
-        });
-
+        const response = await deleteTask(id, token);
         const jsonResponse = await response.json();
         
         if (!response.ok) {
@@ -66,12 +52,12 @@ const TaskDisplay = () => {
         if (response.ok) {
             console.log('Task deleted:', jsonResponse);
             alert("Task Deleted Successfully");
-            getTasks();
+            handleGetTasks();
         }
     }
 
     useEffect(() => {
-        getTasks();
+        handleGetTasks();
     }, [])
 
     const handleShowDetail = (id) => {
@@ -146,7 +132,7 @@ const TaskDisplay = () => {
 
                     <div className="buttons-container">
                         <button className="btn changes-button">Save changes</button>
-                        <button className="btn btn-danger delete-button" onClick={() => deleteTask(displayId)}>Delete</button>
+                        <button className="btn btn-danger delete-button" onClick={() => handleDeleteTask(displayId)}>Delete</button>
                     </div>
                 </div>
 

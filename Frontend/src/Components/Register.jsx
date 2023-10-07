@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 import "../Styles/Register.css"
+import { createUser } from "../hooks/userHook";
 
 const Register = () => {
     const [username, setUsername] = useState("");
@@ -74,15 +75,7 @@ const Register = () => {
             email: email 
         };
 
-        const response = await fetch("http://localhost:3000/api/createUser", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-            
-        });
-        
+        const response = await createUser(user);        
         const json = await response.json();
         
         localStorage.setItem("isUserLoggedIn", true);

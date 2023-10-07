@@ -284,6 +284,20 @@
     text-align: center;
 }
 
+/* React DatePicker */
+
+
+.react-datepicker-wrapper {
+    display: flex !important;
+    align-items: center;
+}
+
+.react-datepicker__navigation {
+    align-items: normal !important;
+}
+
+/*-------------------*/
+
 .task-form {
     max-width: 400px;
     margin: 2rem auto;

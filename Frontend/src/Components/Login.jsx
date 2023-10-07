@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css"
 import { ReactSVG } from "react-svg";
+import { loginUser } from "../hooks/userHook";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -39,14 +40,7 @@ const Login = () => {
             password
         }
 
-        const response = await fetch("http://localhost:3000/api/loginUser", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(loginData)
-        })
-
+        const response = await loginUser(loginData);
         const json = await response.json();
         
         localStorage.setItem("isUserLoggedIn", true);

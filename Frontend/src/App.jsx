@@ -1,7 +1,6 @@
 // import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './Styles/App.css'
-import TaskApp from './Components/TaskApp.jsx'
 import TaskAppDemo from './Components/TaskAppdemo.jsx'
 import Home from './Components/Home.jsx'
 import Register from './Components/Register.jsx'
