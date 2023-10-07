@@ -1,40 +1,19 @@
 import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
+
+import { connectToMongoDB } from "./config/db.js";
+import { PORT } from "./utils/config.js";
 
 import userRouter from "./routes/userRouter.js";
 import taskRouter from "./routes/taskRouter.js";
 
-dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3001;
-const URI = process.env.MONGO_URI;
 
 app.use(express.json());
 app.use(cors());
 app.options('*', cors());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-async function connectToMongoDB() {
-  async function connectionHandler() {
-    try {
-      await mongoose.connect(URI);
-      return true;
-    } catch (error) {
-      console.error("Connection to DB failed");
-      console.error(error);
-      return false;
-    }
-  }
-
-  const connectionResult = await connectionHandler();
-
-  connectionResult
-    ? console.log("Connection to DB established")
-    : process.exit(1);
-}
 
 connectToMongoDB();
 
