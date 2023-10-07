@@ -23,20 +23,20 @@ const Navbar = () => {
           </div>
           <div className="nav__menu">
               <ul className="nav-menu-parent">
-                  <li className="nav-menu-items home"><a className="menu-link" href="#Home">Home</a></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="#About-us">About us</a></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="#contact-us">Contact us</a></li>
+                  <li className="nav-menu-items home"><a className="menu-link" href="Home">Home</a></li>
+                  <li className="nav-menu-items"><a className="menu-link" href="About-us">About us</a></li>
+                  <li className="nav-menu-items"><a className="menu-link" href="contact-us">Contact us</a></li>
               </ul>
           </div>
           <div className="nav__toggle_menu" onClick={menuToggle}>
             <div onClick={menuOpener} className={ toggle ? "menu-toggle-open" : "nav__toggle-menu-line" }>
             </div>
             {menuOpener && <ul className={menuOpen ? "nav-menu-parent menu-open" : "nav-menu-parent"}>
-                  <li className="nav-menu-items home"><a className="menu-link" href="#Home">Home</a></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="#About-us">About us</a></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="#Contact-us">Contact us</a></li>
+                  <li className="nav-menu-items home"><a className="menu-link" href="Home">Home</a></li>
+                  <li className="nav-menu-items"><a className="menu-link" href="About-us">About us</a></li>
+                  <li className="nav-menu-items"><a className="menu-link" href="Contact-us">Contact us</a></li>
                   <li className="nav-menu-items"><Link to="/TaskApp" className="menu-link link-style link">Log in</Link></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="#Register">Register</a></li>
+                  <li className="nav-menu-items"><a className="menu-link" href="Register">Register</a></li>
               </ul>}
           </div>
           <div className="btn-nav">
