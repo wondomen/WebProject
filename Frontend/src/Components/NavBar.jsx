@@ -36,15 +36,15 @@ const Navbar = () => {
                   <li className="nav-menu-items home"><a className="menu-link" href="Home">Home</a></li>
                   <li className="nav-menu-items"><a className="menu-link" href="About-us">About us</a></li>
                   <li className="nav-menu-items"><a className="menu-link" href="Contact-us">Contact us</a></li>
-                  <li className="nav-menu-items"><Link to="/TaskApp" className="menu-link link-style link">Log in</Link></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="Register">Register</a></li>
+                  <li className="nav-menu-items"><Link to="/login" className="menu-link link-style link">Log in</Link></li>
+                  <li className="nav-menu-items"><Link to="/register" className="menu-link">Register</Link></li>
               </ul>}
           </div>
           <div className="btn-nav">
 
               <button className="btn btn-sign-in"><Link to="/Login" className="link-style">Log in</Link></button>
 
-              <button className="btn"><Link to="/TaskApp" className="link-style">Create Task</Link></button>
+              {/* <button className="btn"><Link to="/TaskApp" className="link-style">Create Task</Link></button> */}
 
               <button className="btn "><Link to="/Register" className="link-style">Register</Link></button>
 
