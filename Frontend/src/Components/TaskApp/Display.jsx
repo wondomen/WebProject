@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { format, set } from "date-fns";
+import { format } from "date-fns";
 import { sortDataByDate } from "../../Utils/sortDataByDate";
 
 import SortIcon from '@mui/icons-material/Sort';
@@ -18,17 +17,9 @@ const TaskDisplay = () => {
     const [toggleModal, setToggleModal] = useState(false);
     const [displayId, setDisplayId] = useState(null);
 
-    const navigate = useNavigate();
-
-    const isUserLoggedIn = localStorage.getItem("isUserLoggedIn");
     const token = localStorage.getItem("token");
 
     const handleGetTasks = async () => {
-        if (!token || !isUserLoggedIn) {
-            alert("Session expired. Please login again.");
-            navigate("/Login");
-        }
-
         const response = await getTasks(token);
         const jsonResponse = await response.json();
 
@@ -38,11 +29,6 @@ const TaskDisplay = () => {
     }
 
     const handleDeleteTask = async (id) => {
-        if (!token || !isUserLoggedIn) {
-            alert("Session expired. Please login again.");
-            navigate("/Login");
-        }
-
         const response = await deleteTask(id, token);
         const jsonResponse = await response.json();
         
