@@ -5,6 +5,8 @@ import { ReactSVG } from "react-svg";
 import { loginUser } from "../hooks/userHook";
 import { useAuthContext } from "../hooks/useContext";
 
+import { MdOutlineAddTask } from "react-icons/md";
+
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -61,6 +63,13 @@ const Login = () => {
 
     return (
         <>
+
+            <div className="login-header">
+                <div className="logo" onClick={() => navigate("/")}>
+                    <MdOutlineAddTask className="logo-icon" size={60}/>
+                </div>
+            </div>
+
             <div className="login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <h1>Login</h1>

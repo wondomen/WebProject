@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 
 import "../Styles/Register.css"
+import { MdOutlineAddTask } from "react-icons/md";
 
 import { createUser } from "../hooks/userHook";
 
@@ -101,6 +102,12 @@ const Register = () => {
 
     return (
         <>  
+            <div className="register-header">
+                <div className="logo" onClick={() => navigate("/")}>
+                    <MdOutlineAddTask className="logo-icon" size={60}/>
+                </div>
+            </div>
+
             <ReactSVG className="register-svg" src="./undraw_setup_re_y9w8.svg" />
 
             <div className="register-container">
