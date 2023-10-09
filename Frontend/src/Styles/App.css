@@ -162,7 +162,6 @@ body {
 }
 .btn-nav button {
     transition: all 150ms ease-in;
-
 }
 
 .link-style {
@@ -242,41 +241,6 @@ body {
 }
 
 
-/* TaskApp */
-
-
-.create__task {
-  max-width: 400px;
-  margin: 2rem auto;
-  text-align: center;
-}
-.create__task label {
-  text-align: left;
-  display: block;
-}
-.create__task h2 {
-  font-size: 20px;
-  color: var(--primary-color);
-  margin-bottom: 30px;
-}
-.create__task input, .create__task textarea, .create__task select {
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border: 1px solid var(--primary-color);
-  border-radius: 10px;
-  background-color: #e2fffd;
-  box-sizing: border-box;
-  display: block;
-}
-.create__task button {
-  background: var(--primary-color);
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
 
 
 /* MainHome */
@@ -753,16 +717,3 @@ body {
     
 
 }
-
-/* React DatePicker  */
-
-
-.react-datepicker-wrapper {
-    display: flex !important;
-    align-items: center;
-}
-
-.react-datepicker__navigation {
-    align-items: normal !important;
-}
-

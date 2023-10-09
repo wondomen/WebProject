@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css"
 import { ReactSVG } from "react-svg";
+import { loginUser } from "../hooks/userHook";
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    
     const navigate = useNavigate();
 
     const loginCriteria = [
@@ -38,19 +40,17 @@ const Login = () => {
             password
         }
 
-        const response = await fetch("http://localhost:3000/api/loginUser", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(loginData)
-        })
-
-        // const data = await response.json();
+        const response = await loginUser(loginData);
+        const json = await response.json();
+        
+        localStorage.setItem("isUserLoggedIn", true);
+        localStorage.setItem("user", json.username);
+        localStorage.setItem("token", json.token);
 
         if (!response.ok) {
-            console.log("Error in logging in");
-            console.log(response);
+            // console.log("Error in logging in");
+            // console.log(response);
+            alert("Incorrect username or password");
         }
         if (response.ok) {
             setUsername("");

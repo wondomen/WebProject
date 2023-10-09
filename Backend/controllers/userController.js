@@ -35,7 +35,7 @@ const createUser = async (req, res) => {
         const token = jwt.sign(
             { id: newUser._id },
             process.env.JWT_SECRET,
-            { expiresIn: "30d" }
+            { expiresIn: "1d" }
         );
     
         const response = {
@@ -80,10 +80,16 @@ const loginUser = async (req, res) => {
         const token = jwt.sign(
           { id: usernameCheck._id },
           process.env.JWT_SECRET,
-          { expiresIn: "30d" }
+          { expiresIn: "1d" }
         );
+
+        const response = { 
+            message: "User logged in", 
+            username: usernameCheck.username,
+            token: token 
+        }
     
-        res.status(200).json({ message: "User logged in", token: token });    
+        res.status(200).json(response);    
       } 
       catch (error) {
         console.log("Error occured in adding user data");

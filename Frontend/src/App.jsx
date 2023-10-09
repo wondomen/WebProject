@@ -1,8 +1,7 @@
 // import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './Styles/App.css'
-import TaskApp from './Components/TaskApp.jsx'
-import TaskAppDemo from './Components/TaskAppdemo.jsx'
+import TaskAppDemo from './Components/TaskAppDemo.jsx'
 import Home from './Components/Home.jsx'
 import Register from './Components/Register.jsx'
 import Login from './Components/Login.jsx'
@@ -12,7 +11,7 @@ function App() {
   
   return (
     <>
-      <BrowserRouter>   
+      <BrowserRouter basename='/'>   
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Login" element={<Login />} />
