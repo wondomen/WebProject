@@ -48,9 +48,9 @@ const TaskAppDemo = () => {
                             </div>
 
                             <div className="dropdown-selection">
-                                <p>Account</p>
-                                <p>Settings</p>
-                                <p onClick={handleLogout}>Logout</p>
+                                <p className="account-button">Account</p>
+                                <p className="settings-button">Settings</p>
+                                <p className="logout-button" onClick={handleLogout}>Logout</p>
                             </div>
                         </div>
                     </>
