@@ -12,10 +12,11 @@ const AddTask = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const task = { title, content, date };
-
         const auth = new Boolean(localStorage.getItem("isAuth"));
         const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");
+
+        const task = { user, title, content, date };
 
         // console.log(auth, token);
 

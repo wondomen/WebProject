@@ -8,7 +8,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import AddTask from "./AddTask";
 
-import { getTasks, deleteTask } from "../../hooks/taskHook";
+import { getTasksByUserId, deleteTask } from "../../hooks/taskHook";
 
 
 const TaskDisplay = () => {
@@ -17,10 +17,11 @@ const TaskDisplay = () => {
     const [toggleModal, setToggleModal] = useState(false);
     const [displayId, setDisplayId] = useState(null);
 
+    const user = localStorage.getItem("user");
     const token = localStorage.getItem("token");
 
     const handleGetTasks = async () => {
-        const response = await getTasks(token);
+        const response = await getTasksByUserId(user, token);
         const jsonResponse = await response.json();
 
         sortDataByDate(jsonResponse);

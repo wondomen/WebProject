@@ -13,22 +13,19 @@ const Sidebar = () => {
     return (
         <>
             <div className="sidebar">
-
                 <div className="sidebar-items">
                     <ul>
                         {items.map((item) => {
                             return (
-                                <li key={item.key}>
-                                        <p className="icon">{item.icon}</p>
-                                        <p className="title">{item.name}</p>
+                                <li className="item" key={item.key}>
+                                    <p className="icon">{item.icon}</p>
+                                    <p className="title">{item.name}</p>
                                 </li>
                             )
                         })}
                     </ul>
                 </div>
             </div>
-
-
         </>
     )
 };

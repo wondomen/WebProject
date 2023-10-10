@@ -1,8 +1,23 @@
 import { Task } from "../models/taskModel.js";
+import { User } from "../models/userModel.js";
 
 const createTask = async (req, res) => {
     try {
-        const data = await Task.create(req.body);
+        const { title, date, content, user } = req.body;
+
+        if (!title || !date || !content || !user) {
+            return res.status(400).json({ message: "Please fill in all required fields" });
+        }
+
+        const { _id } = await User.findOne({ username: user });
+
+        const task = {
+            title: title,
+            date: date,
+            content: content,
+            user_id: _id
+        }
+        const data = await Task.create(task);
         console.log("Task data added");
         res.status(200).json(data);
     }
@@ -29,6 +44,28 @@ const getAllTasks = async (req, res) => {
 const getTaskById = async (req, res) => {
     try {
         const data = await Task.findById(req.params.id);
+        console.log("Task data fetched");
+        res.status(200).json(data);
+    }
+    catch (error) {
+        console.log("Error occured in fetching task data");
+        console.log(error);
+        res.status(400);
+    }
+};
+
+const getTasksByUserId = async (req, res) => {
+    try {
+        const { _id } = await User.findOne({ username: req.params.user });
+
+        console.log(_id);
+
+        if (!_id) return res.status(404).json({ message: "The user does not exist" });
+
+        const data = await Task.find({ user_id: _id });
+
+        console.log(data);
+
         console.log("Task data fetched");
         res.status(200).json(data);
     }
@@ -80,6 +117,7 @@ export default {
     createTask, 
     getAllTasks, 
     getTaskById, 
+    getTasksByUserId,
     updateTaskById, 
     deleteTaskById 
 };

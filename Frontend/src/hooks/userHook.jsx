@@ -1,4 +1,5 @@
 const API="https://taskmanager-server-hj26.onrender.com";
+// const API="http://localhost:3000";
 
 export const createUser = async (user) => {
     const response = await fetch(`${API}/api/createUser`, {
