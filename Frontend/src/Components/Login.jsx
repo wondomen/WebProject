@@ -3,10 +3,15 @@ import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css"
 import { ReactSVG } from "react-svg";
 import { loginUser } from "../hooks/userHook";
+import { useAuthContext } from "../hooks/useContext";
+
+import { MdOutlineAddTask } from "react-icons/md";
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    const { dispatch } = useAuthContext();
     
     const navigate = useNavigate();
 
@@ -43,25 +48,28 @@ const Login = () => {
         const response = await loginUser(loginData);
         const json = await response.json();
         
-        localStorage.setItem("isUserLoggedIn", true);
-        localStorage.setItem("user", json.username);
-        localStorage.setItem("token", json.token);
-
         if (!response.ok) {
             // console.log("Error in logging in");
             // console.log(response);
             alert("Incorrect username or password");
         }
         if (response.ok) {
+            dispatch({ type: "LOGIN", payload: { user: json.username, token: json.token } });
+
             setUsername("");
             setPassword("");
-            // console.log("Logged in");
-            navigate("/");
         }
     }
 
     return (
         <>
+
+            <div className="login-header">
+                <div className="logo" onClick={() => navigate("/")}>
+                    <MdOutlineAddTask className="logo-icon" size={60}/>
+                </div>
+            </div>
+
             <div className="login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <h1>Login</h1>

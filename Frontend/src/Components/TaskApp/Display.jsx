@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { format, set } from "date-fns";
+import { format } from "date-fns";
 import { sortDataByDate } from "../../Utils/sortDataByDate";
 
 import SortIcon from '@mui/icons-material/Sort';
@@ -9,7 +8,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import AddTask from "./AddTask";
 
-import { getTasks, deleteTask } from "../../hooks/taskHook";
+import { getTasksByUserId, deleteTask } from "../../hooks/taskHook";
 
 
 const TaskDisplay = () => {
@@ -18,18 +17,11 @@ const TaskDisplay = () => {
     const [toggleModal, setToggleModal] = useState(false);
     const [displayId, setDisplayId] = useState(null);
 
-    const navigate = useNavigate();
-
-    const isUserLoggedIn = localStorage.getItem("isUserLoggedIn");
+    const user = localStorage.getItem("user");
     const token = localStorage.getItem("token");
 
     const handleGetTasks = async () => {
-        if (!token || !isUserLoggedIn) {
-            alert("Session expired. Please login again.");
-            navigate("/Login");
-        }
-
-        const response = await getTasks(token);
+        const response = await getTasksByUserId(user, token);
         const jsonResponse = await response.json();
 
         sortDataByDate(jsonResponse);
@@ -38,11 +30,6 @@ const TaskDisplay = () => {
     }
 
     const handleDeleteTask = async (id) => {
-        if (!token || !isUserLoggedIn) {
-            alert("Session expired. Please login again.");
-            navigate("/Login");
-        }
-
         const response = await deleteTask(id, token);
         const jsonResponse = await response.json();
         

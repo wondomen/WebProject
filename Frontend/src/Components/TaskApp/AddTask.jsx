@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -10,22 +9,16 @@ const AddTask = () => {
     const [content, setContent] = useState('');
     const [date, setDate] = useState(new Date());
 
-    const navigate = useNavigate();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const task = { title, content, date };
-
-
-        const isUserLoggedIn = localStorage.getItem("isUserLoggedIn");
+        const auth = new Boolean(localStorage.getItem("isAuth"));
         const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");
 
-        if (!token || !isUserLoggedIn) {
-            alert("Session expired. Please login again.");
-            navigate("/Login");
-            return;
-        }
+        const task = { user, title, content, date };
+
+        // console.log(auth, token);
 
         const response = await createTask(task, token);
         const json = await response.json();

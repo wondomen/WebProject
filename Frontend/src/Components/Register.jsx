@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ReactSVG } from "react-svg";
+
 import "../Styles/Register.css"
+import { MdOutlineAddTask } from "react-icons/md";
+
 import { createUser } from "../hooks/userHook";
 
 const Register = () => {
@@ -11,6 +14,7 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
+
     const navigate = useNavigate();
 
 
@@ -76,12 +80,7 @@ const Register = () => {
         };
 
         const response = await createUser(user);        
-        const json = await response.json();
-        
-        localStorage.setItem("isUserLoggedIn", true);
-        localStorage.setItem("user", json.username);
-        localStorage.setItem("token", json.token);
-
+        // const json = await response.json();
 
         if (!response.ok) {
             console.log("Error in adding user");
@@ -96,13 +95,19 @@ const Register = () => {
             setLastname("");
             // console.log("New user added:", json);
             alert("User Added Successfully");
-            navigate("/TaskApp");
+            navigate("/login");
         }
     };
 
 
     return (
         <>  
+            <div className="register-header">
+                <div className="logo" onClick={() => navigate("/")}>
+                    <MdOutlineAddTask className="logo-icon" size={60}/>
+                </div>
+            </div>
+
             <ReactSVG className="register-svg" src="./undraw_setup_re_y9w8.svg" />
 
             <div className="register-container">

@@ -7,21 +7,18 @@ import Display from "./TaskApp/Display";
 import "../Styles/TaskApp.css";
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useAuthContext } from "../hooks/useContext";
 
 const TaskAppDemo = () => {
     const [profileDropdown, setProfileDropdown] = useState(false);
-
-    const navigate = useNavigate();
+    const { dispatch } = useAuthContext();
 
     const callbackFunc = (value) => {
         setProfileDropdown(value);
     }
 
     const handleLogout = () => {
-        localStorage.removeItem("isUserLoggedIn");
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
-        navigate("/");
+        dispatch({ type: "LOGOUT" });
     }
 
     return (
@@ -49,12 +46,11 @@ const TaskAppDemo = () => {
                                 <div className="dropdown-profile-picture">
                                     <AccountCircleIcon className="profile-picture-icon"/>
                                 </div>
+                            <div className="dropdown-selection">
+                                <p className="account-button">Account</p>
+                                <p className="settings-button">Settings</p>
+                                <p className="logout-button" onClick={handleLogout}>Logout</p>
 
-                                <div className="dropdown-selection">
-                                    <p>Account</p>
-                                    <p>Settings</p>
-                                    <p onClick={handleLogout}>Logout</p>
-                                </div>
                             </div>
                         </>
                         
