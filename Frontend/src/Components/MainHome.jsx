@@ -5,8 +5,8 @@ import '../Styles/App.css'
 const MainHome = () => {
   return (
     <>
-      <div className="container">
-        <div className="home_head">
+      <div className="container" id='Home'>
+        <div className="home_head" >
           <h1 className="home_head_title">
             Better Teamwork, More Work Done, All in one
           </h1>

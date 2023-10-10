@@ -1,13 +1,16 @@
+.container {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
 .task-app {
     display: block;
     max-height: 100vh;
     overflow-x: hidden;
 }
-
-
-
-
-
 .task-nav {
     display: flex;
     justify-content: space-between;
@@ -74,27 +77,17 @@
     font-size: 100px;
     color: #0BBFAE;
 }
-
-
-
-
 .task-main {
     display: flex;
     margin-top: 15px;
     min-height: 87vh;
     max-height: 87vh;
 }
-
-
-
-
-
 .task-sidebar {
     width: 15%;
     background-color: rgb(247, 247, 247);
     border: 1px solid #ddd;
     border-radius: 2rem;
-    padding: 20px;
     margin: 10px;
 }
 
@@ -189,9 +182,6 @@
     overflow-x: hidden;
     overflow-y: auto;
 }
-
-
-
 .task-overview-item {
     width: 97.5%;
     background-color: rgb(247, 247, 247);
@@ -201,8 +191,6 @@
     margin: 20px 10px 20px 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-
 .task-detail-header {
     display: flex;
     padding: 10px;
@@ -211,7 +199,6 @@
     position: sticky;
     height: 60px;
 }
-
 .task-detail-header .changes-button {
     background-color: #0BBFAE;
 }
@@ -219,13 +206,11 @@
 .task-detail-header .changes-button:hover {
     background-color: #0BBFAE;
 }
-
 .task-detail-header svg {
     color: #0BBFAE;
     font-size: 30px;
     cursor: pointer;
 }
-
 .task-detail.show {
     height: 90%;
     width: 65%;
@@ -251,10 +236,6 @@
     visibility: hidden;
     position: absolute; 
 }
-
-
-
-
 .overlay {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -286,6 +267,73 @@
     color: var(--primary-color);
     margin-bottom: 30px;
     text-align: center;
+}
+
+
+/* Responsive Part */
+
+@media screen and (max-width: 1400px) {
+    .container {
+        width: 1700px;
+    }
+    
+}
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 1700px;
+    }
+    .task-display {
+        width: 80%;
+    }
+    .task-sidebar {
+        width: 20%;
+    }
+    
+}
+@media screen and (max-width: 992px) {
+    .container {
+        width: 1000px;
+    }
+    .sidebar-items li {
+        font-size: 14px;
+    }
+    
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 768px;
+    }
+    .task-display {
+        width: 70%;
+    }
+    .task-sidebar {
+        width: 30%;
+    }
+}
+@media screen and (max-width: 576px) {
+    .container{
+        width: 540px;
+    }
+    .task-main{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .task-display {
+        width: 75%;
+        height: 107vh;
+    }
+    .task-sidebar {
+        width: 70%;
+    }
+    .sidebar-items li {
+        text-align: center;
+    }
+}
+@media screen and (max-width: 374px) {
+    .container {
+        width: 374px;
+    }
+
 }
 
 /* React DatePicker */
