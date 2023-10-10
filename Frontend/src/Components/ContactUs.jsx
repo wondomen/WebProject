@@ -2,12 +2,15 @@
 // import React from 'react';
 
 const ContactUs = () => {
- 
+  const onClick = () => {
+    alert("Your message has been sent successfully!, We will get back to you soon. Thank you!")
+    
+  }
 
   return (
     <>
-        <div className="container">
-            <div className="AboutUs_content">
+        <div className="container" id="ContactUs">
+            <div className="AboutUs_content" >
                 <h1 className="AboutUs_header">Let&apos;s be in touch</h1>
                 <p className="AboutUs_caption">Stay on top of your projects, goals and daily tasks</p>
             </div>
@@ -29,7 +32,7 @@ const ContactUs = () => {
                         <input type="text" className="contact_input" placeholder="Your Email Address" />
                         <input type="text" className="contact_input" placeholder="Subject" />
                         <textarea  className="contact_input contact_input_textarea" rows={5} placeholder="Enter Your Message"></textarea>
-                        <button className="contact_button" type="submit">Send Message</button>
+                        <button className="contact_button" type="submit" onClick={onClick}>Send Message</button>
                     </form>
                 </div>
             </div>

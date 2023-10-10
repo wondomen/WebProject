@@ -6,8 +6,8 @@ import { TbPuzzle2, TbTargetArrow } from "react-icons/tb";
 const AboutUs = () => {
   return (
     <>
-      <div className="AboutUs">
-        <div className="container">
+      <div className="AboutUs" id="AboutUs">
+        <div className="container" >
             <div className="AboutUs_content">
                 <h1 className="AboutUs_header">A complete desk at your disposal</h1>
                 <p className="AboutUs_caption">Stay on top of your projects, goals and daily tasks</p>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Nav from "./TaskApp/Nav";
@@ -30,37 +30,37 @@ const TaskAppDemo = () => {
                 <div className="task-nav">
                     <Nav callback={callbackFunc}/>
                 </div>
-                
-                <div className="task-main">
-                    <div className="task-sidebar">
-                        <Sidebar />
-                    </div>
-
-                    <div className="task-display">
-                        <Display />
-                    </div>
-
-                </div>
-
-                {profileDropdown && (
-                    <>
-                        <div className="dropdown-overlay" onClick={() => setProfileDropdown(false)}></div>
-                        <div className="dropdown-menu-container">   
-                            <div className="dropdown-profile-picture">
-                                <AccountCircleIcon className="profile-picture-icon"/>
-                            </div>
-
-                            <div className="dropdown-selection">
-                                <p>Account</p>
-                                <p>Settings</p>
-                                <p onClick={handleLogout}>Logout</p>
-                            </div>
+                <div className="container">
+                    <div className="task-main">
+                        <div className="task-sidebar">
+                            <Sidebar />
                         </div>
-                    </>
-                    
-                )}
+
+                        <div className="task-display">
+                            <Display />
+                        </div>
+
+                    </div>
+
+                    {profileDropdown && (
+                        <>
+                            <div className="dropdown-overlay" onClick={() => setProfileDropdown(false)}></div>
+                            <div className="dropdown-menu-container">   
+                                <div className="dropdown-profile-picture">
+                                    <AccountCircleIcon className="profile-picture-icon"/>
+                                </div>
+
+                                <div className="dropdown-selection">
+                                    <p>Account</p>
+                                    <p>Settings</p>
+                                    <p onClick={handleLogout}>Logout</p>
+                                </div>
+                            </div>
+                        </>
+                        
+                    )}
+                </div>
             </div>
-            
             
         </>
     );

@@ -5,6 +5,7 @@ import'../Styles/App.css'
 import {MdOutlineAddTask} from 'react-icons/md'
 
 
+
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,9 +25,9 @@ const Navbar = () => {
           </div>
           <div className="nav__menu">
               <ul className="nav-menu-parent">
-                  <li className="nav-menu-items home"><a className="menu-link" href="Home">Home</a></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="About-us">About us</a></li>
-                  <li className="nav-menu-items"><a className="menu-link" href="contact-us">Contact us</a></li>
+                  <li className="nav-menu-items home"><a className="menu-link" href="#Home">Home</a></li>
+                  <li className="nav-menu-items"><a className="menu-link" href="#AboutUs">About us</a></li>
+                  <li className="nav-menu-items"><a className="menu-link" href="#ContactUs">Contact us</a></li>
               </ul>
           </div>
           <div className="nav__toggle_menu" onClick={menuToggle}>
