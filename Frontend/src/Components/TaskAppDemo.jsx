@@ -46,12 +46,13 @@ const TaskAppDemo = () => {
                                 <div className="dropdown-profile-picture">
                                     <AccountCircleIcon className="profile-picture-icon"/>
                                 </div>
-                            </div>
-                            <div className="dropdown-selection">
-                                <p className="account-button">Account</p>
-                                <p className="settings-button">Settings</p>
-                                <p className="logout-button" onClick={handleLogout}>Logout</p>
+                            
+                                <div className="dropdown-selection">
+                                    <p className="account-button">Account</p>
+                                    <p className="settings-button">Settings</p>
+                                    <p className="logout-button" onClick={handleLogout}>Logout</p>
 
+                                </div>
                             </div>
                         </>
                         
