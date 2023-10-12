@@ -260,6 +260,7 @@
     width: 40%;
     height: fit-content;
     z-index: 10;
+    min-width: 400px;
 }
 
 .create-task-container h2 {
